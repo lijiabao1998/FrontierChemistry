@@ -88,7 +88,26 @@
     "skeptic_bugs_found": [
       "C5 detector scaled unc by 4.184 alongside label (25% flag rate; fixed to reported-unc, 66.7% - physical ceiling of global-mean detector remains)"
     ],
-    "wall_minutes_used_approx": 30
+    "wall_minutes_used_approx": 30,
+    "remediation": {
+      "license_review": {
+        "license": "CC BY 4.0 International",
+        "source": "https://raw.githubusercontent.com/MobleyLab/FreeSolv/master/LICENSE (downloaded to lit_data/FREESOLV_LICENSE)",
+        "terms": "sharing/adaptation permitted with attribution; our artifact carries full citation (Mobley & Guthrie 2014, dataset DOIs) and the in-repo copy is unmodified",
+        "conclusion": "redistribution of database.txt in this repo is authorized with attribution; attribution verified present"
+      },
+      "codex_findings": {
+        "P1_fixed": 3,
+        "P2_fixed": 1,
+        "details": [
+          "scaffold key now tokenises bracket+aromatic atoms (was 483/642 collapse)",
+          "unseen-scaffold fallback now uses weighted global train mean (corrected MAE 2.85; prior +0.656 degradation claim RETRACTED as fallback artifact)",
+          "licenses_checked substantively completed: CC BY 4.0 reviewed and recorded",
+          "hashes regenerated and sha256sum -c passes"
+        ],
+        "frozen_checks_status": "C1/C2/C3 pass; C4/C5 remain FAIL as originally frozen - corrected analysis recorded, thresholds to be re-registered in a future round"
+      }
+    }
   },
   "admitted_at": "2026-09-27T19:12:17.625850+00:00"
 }

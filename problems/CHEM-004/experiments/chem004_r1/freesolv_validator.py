@@ -79,12 +79,41 @@ def hetero_atoms(smiles: str) -> int:
     return len(re.findall(r"[NOPS]", smiles.replace("[", "").replace("]", "")))
 
 
+ATOM_TOK = re.compile(r"\[([^]]+)\]|(Cl|Br|[BCNOPSFIbcnops])")
+
+
 def naive_scaffold(smiles: str) -> str:
+    """Composition+ring approximation of a scaffold key (Codex-review fixed).
+
+    Initial version matched only uppercase organic atoms, so aromatic rings
+    (c1ccccc1) were invisible and 483/642 records collapsed into one acyclic
+    key. Now: strip stereo/charges, tokenise bracket + organic atoms (upper
+    and lowercase), collect atoms carrying ring-closure digits, and key ring
+    systems by sorted element signature + ring count + aromaticity; acyclic
+    molecules key by their full element histogram. Still an approximation of
+    Bemis-Murcko (which needs RDKit).
+    """
     s = smiles.replace("@", "").replace("\\", "").replace("/", "")
-    ring_atoms = re.findall(r"(Cl|Br|[BCNOPS])\d", s)
-    if ring_atoms:
-        return "ring:" + "".join(sorted(Counter(ring_atoms).elements())) + f":{len(ring_atoms)}"
-    return f"acyclic:{max(2, min(20, heavy_atoms(s) // 3))}"
+    digit_atoms = []
+    for m in ATOM_TOK.finditer(s):
+        tail = s[m.end():m.end() + 2]
+        if not re.match(r"\d", tail):
+            continue
+        if m.group(1) is not None:
+            mm = re.match(r"[A-Z][a-z]?", m.group(1))
+            el = mm.group(0) if mm else "X"
+        else:
+            el = m.group(2)
+        digit_atoms.append(el.upper())
+    if digit_atoms:
+        n_rings = max(len(re.findall(r"\d", s)) // 2, 0)
+        aromatic = bool(re.search(r"[bcnops]", s))
+        return ("ring:" + "".join(sorted(digit_atoms)) + ":" + str(n_rings)
+                + (":aro" if aromatic else ""))
+    hist = tuple(sorted(Counter(
+        (m.group(1) or m.group(2)).upper() for m in ATOM_TOK.finditer(s)
+        if not (m.group(1) and len(m.group(1)) == 0)).items()))
+    return "acyclic:" + str(hist)
 
 
 def mae(errs) -> float:
@@ -133,7 +162,7 @@ def main() -> int:
             for i in tr:
                 grp[naive_scaffold(recs[i]["smiles"])].append(recs[i]["dg_exp"])
             gm = {k: sum(v) / len(v) for k, v in grp.items()}
-            mu = sum(v for v in gm.values()) / len(gm)
+            mu = sum(recs[i]["dg_exp"] for i in tr) / len(tr)  # true global mean (Codex fix)
             preds = {i: gm.get(naive_scaffold(recs[i]["smiles"]), mu) for i in te}
         else:  # ols2: heavy atoms + hetero atoms
             xs = [[heavy_atoms(recs[i]["smiles"]), hetero_atoms(recs[i]["smiles"])]
