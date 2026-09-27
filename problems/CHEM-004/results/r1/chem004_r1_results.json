@@ -1,0 +1,65 @@
+{
+  "generated": "2026-09-27T19:15:01+00:00",
+  "n_records": 642,
+  "checks_report": {
+    "C2_charged_records": [],
+    "C6_exact_smiles_dups": {},
+    "C6_stereo_stripped_dups": {
+      "C[CH](C(F)(F)F)O": 2
+    },
+    "C6_records_with_stereo": 51,
+    "C6_stereo_rename_notes": 37,
+    "C6_default_unc_060_count": 459,
+    "C6_unpublished_source_count": 3
+  },
+  "calc_vs_exp_mae": 1.114,
+  "split_results": {
+    "random_global": {
+      "mae": 3.12,
+      "rmse": 4.382,
+      "n": 129
+    },
+    "random_ols2": {
+      "mae": 2.49,
+      "rmse": 3.454,
+      "n": 129
+    },
+    "random_scaffoldmean": {
+      "mae": 3.103,
+      "rmse": 4.287,
+      "n": 129
+    },
+    "scaffold_global": {
+      "mae": 3.025,
+      "rmse": 3.843,
+      "n": 483
+    },
+    "scaffold_ols2": {
+      "mae": 2.361,
+      "rmse": 3.049,
+      "n": 483
+    },
+    "scaffold_scaffoldmean": {
+      "mae": 3.759,
+      "rmse": 4.507,
+      "n": 483
+    },
+    "leakage_mechanism_gap": -0.656,
+    "n_scaffold_keys_total": 11,
+    "n_scaffold_keys_held_out": 1,
+    "wrong_unit_control": {
+      "poisoned": 12,
+      "flagged": 8,
+      "flag_rate": 0.667,
+      "detector_note": "z uses reported unc un-scaled; prior buggy run scaled unc by 4.184 too and flagged only 25%"
+    }
+  },
+  "checks": {
+    "C1_record_count": true,
+    "C2_net_charge_clean": true,
+    "C3_calc_anchor_mae": true,
+    "C4_scaffold_split_degrades": false,
+    "C5_wrong_unit_flag_rate": false
+  },
+  "verdict": "CHECKS_FAILED"
+}

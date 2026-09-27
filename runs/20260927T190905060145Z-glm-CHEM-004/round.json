@@ -1,0 +1,94 @@
+{
+  "round_id": "20260927T190905060145Z-glm-CHEM-004",
+  "problem_id": "CHEM-004",
+  "agent": "glm",
+  "branch": "glm/CHEM-004-baseline-r1",
+  "base_sha": "6edd379003c880e5c3e5b1ade556dff21e9a7591",
+  "started_at": "2026-09-27T19:09:05.060145+00:00",
+  "state": "ADMITTED",
+  "acceptance": "Scope 凍結（動手前）：僅良性公開計算/資料研究，中性分子水合自由能（FreeSolv v0.52，實檔已下載 144,897B）。預登記 checks：(C1) 解析記錄數 ∈ [640,644]（v0.52 標稱 642-643）；(C2) net-charge 校驗：0 筆淨電荷≠0（SMILES 括號電荷求和，nitro 之 +/- 應抵消）；(C3) 重現基線錨點：資料集內建 GAFF 計算欄之 calc-vs-exp MAE ∈ [0.9,1.6] kcal/mol（文獻 ~1.2-1.3；帶寬放予版本漂移，事前凍結）；(C4) chemical split（naive scaffold key：環系骨架+組成；非 RDKit Murcko，已標明近似）留出之 MAE 必須劣於 random split MAE（量化洩漏風險）；(C5) wrong-unit 負控制：隨機 10% 標籤 ×4.184（kcal→kJ 混淆）後，z-score 偵測器必須標記 ≥90% 被污染記錄；(C6) duplicates/立體化學報告（exact SMILES dup、去立體 dup、含 @/@@ 記錄數、note 中 stereo rename 數）——報告性，不設門檻。單位/溫度/標準態以檔頭+文獻記錄（kcal/mol、298K、1atm 氣相→1M 溶液 convention）作資料集層級聲明。所有門檻執行前凍結。",
+  "not_done": "不做量子計算/力場模擬；不觸及離子/危險分子/濕實驗；不宣稱新預測方法；不做多溶劑外推（後續輪次）；naive scaffold 非 Bemis-Murcko，僅為本輪化學分層近似。",
+  "budget": {
+    "wall_minutes": 90,
+    "usd": 0,
+    "max_trials": 100
+  },
+  "preflight": {
+    "checked_at": "2026-09-27T19:14:30+00:00",
+    "verdict": "NO_RESOLUTION_FOUND",
+    "sources_read": true,
+    "scope_compared": true,
+    "retractions_checked": true,
+    "licenses_checked": true,
+    "safety_checked": true,
+    "baseline_identified": true,
+    "acceptance_frozen": true,
+    "queries": [
+      {
+        "query": "FreeSolv database hydration free energy units kcal/mol standard state 298K Mobley convention",
+        "engine": "zcode-websearch(web_search_prime)",
+        "category": "general",
+        "outcome": "kcal/mol、298K、1atm→1M convention 確認；中性分子避免離子標準態歧義"
+      },
+      {
+        "query": "\"Computing Solvation Free Energies of Small Molecules with Experimental Accuracy\" JACS machine learning potential alchemical",
+        "engine": "zcode-websearch(web_search_prime)",
+        "category": "solution",
+        "outcome": "primary（Moore et al. 2026, JACS, cited 18）存在；arXiv preprint 2026-01-09；blog 指出『caveats』——全文未讀，記 limitations"
+      },
+      {
+        "query": "FreeSolv dataset errors corrections erratum experimental values reassigned duplicates stereochemistry audit",
+        "engine": "zcode-websearch(web_search_prime)",
+        "category": "criticism",
+        "outcome": "作者自認原集有錯（misassignment/incorrect values/duplicates），以 GitHub issue tracker 版本化修正；v0.52 為修正後版本"
+      },
+      {
+        "query": "MobleyLab FreeSolv GitHub database.txt format columns license version history",
+        "engine": "zcode-websearch(web_search_prime)",
+        "category": "discipline",
+        "outcome": "v0.5 更新論文（2017）；643 分子；格式以本地檔頭第一手確認"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/MobleyLab/FreeSolv/master/database.txt",
+        "title": "FreeSolv v0.52 database.txt（MobleyLab GitHub，實檔下載）",
+        "kind": "primary",
+        "supports": "642-643 中性分子水合自由能、實驗+GAFF計算值、不確定度、SMILES、DOI、notes；檔頭自述格式"
+      },
+      {
+        "url": "https://pubs.acs.org/doi/abs/10.1021/jacs.5c10940",
+        "title": "Computing Solvation Free Energies of Small Molecules with Experimental Accuracy (Moore et al. 2026, JACS)",
+        "kind": "primary",
+        "supports": "題卡 primary；ML potential + alchemical 達實驗級精度（摘要層級）"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov（FreeSolv 2014 論文頁）",
+        "title": "Mobley & Guthrie 2014（FreeSolv 原始論文）",
+        "kind": "secondary",
+        "supports": "原集錯誤（misassigned/incorrect/duplicates）與 erratum/版本化修正史"
+      }
+    ],
+    "limitations": "4 query 有界；JACS primary 僅摘要層級（付費牆）；FreeSolv license 條款未逐字讀 repo LICENSE 檔（下輪補審，資料本身公開學術使用）；「無結果」非未解證明。",
+    "scope_comparison": "題卡 scope＝跨骨架/溶劑/電荷條件之溶劑化自由能可遷移性。Moore 2026 在中性分子達實驗級精度屬 PARTIAL 進展（其訓練範圍≠離子/任意溶劑已解，題卡 known_result 已正確記載）→ 無同範圍完整解答 → NO_RESOLUTION_FOUND；題卡無需更新。",
+    "baseline": "baseline 錨點＝FreeSolv 內建 GAFF calc 欄之 calc-vs-exp MAE（文獻 ~1.2-1.3 kcal/mol）；本輪另建 group-mean 與 2-特徵 OLS（重原子數/雜原子數）對照 random vs chemical split。"
+  },
+  "artifacts": [
+    "runs/20260927T190905060145Z-glm-CHEM-004/ROUND_REPORT.md",
+    "problems/CHEM-004/experiments/chem004_r1/freesolv_validator.py",
+    "problems/CHEM-004/experiments/chem004_r1/lit_data/freesolv_database.txt",
+    "problems/CHEM-004/results/r1/chem004_r1_results.json",
+    "problems/CHEM-004/results/r1/hashes.txt",
+    "problems/CHEM-004/results/r1/environment.txt"
+  ],
+  "result": {
+    "state": "ROUND_FINISHED",
+    "verdict": "NO_RESOLUTION_FOUND",
+    "summary": "FreeSolv v0.52 核對（642 筆、淨電荷清潔、GAFF calc MAE 1.114 重現於凍結帶）；C4/C5 凍結門檻 FAIL 如實記錄＋機制分析（group-aware 劣化 +0.656 MAE；unit 偵測率 66.7% 物理天花板）；wrong-unit/duplicates/stereo 報告齊備。",
+    "skeptic_bugs_found": [
+      "C5 detector scaled unc by 4.184 alongside label (25% flag rate; fixed to reported-unc, 66.7% - physical ceiling of global-mean detector remains)"
+    ],
+    "wall_minutes_used_approx": 30
+  },
+  "admitted_at": "2026-09-27T19:12:17.625850+00:00"
+}
