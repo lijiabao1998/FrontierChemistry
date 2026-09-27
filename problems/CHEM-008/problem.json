@@ -1,0 +1,13 @@
+{
+"id":"CHEM-008","domain":"chemistry","title":"CO2電還原選擇性的跨操作條件預測","status":"OPEN","priority":"C","checked_on":"2026-09-27",
+"statement":"對固定公開催化系統，如何聯合微觀反應、競爭析氫、介面條件及傳質，預測未見條件下的產物分布，而不把單因素解釋外推為通則？",
+"known_result":"2026手性自旋選擇性研究為Cu系統的競爭析氫及產物分布提供證據；結果有特定材料與操作範圍。",
+"open_gap":"自旋、局部環境、傳質及動力學共同作用下的可區分、可遷移機制。",
+"first_task":"凍結一組低風險公開數據，先重現簡化競爭反應模型，核電荷／物質收支與參數退化，不產出操作或製程優化指令。",
+"evaluator":"產物分布與不確定性、不同條件留出、守恆、微觀動力學／傳質替代模型比較。",
+"validation_limits":"個別選擇性提升不代表機制普適；模型擬合不等於實際新反應實驗。",
+"completion_criterion":"明列系統與條件的子預測經獨立核實；一般CO2還原選擇性問題仍需其餘範圍證據。",
+"screening_note":"已讀2026原始摘要；沒有進行催化劑設計、操作或新實驗。",
+"screening_queries":["\"Chirality-induced spin selectivity as a mechanism\""],
+"sources":[{"title":"Chirality-induced spin selectivity as a mechanism to control product selectivity during electrochemical CO2 reduction (2026)","url":"https://www.nature.com/articles/s41560-026-02062-1","kind":"primary","supports":"特定Cu介面機制與產物選擇性進展。"}]
+}

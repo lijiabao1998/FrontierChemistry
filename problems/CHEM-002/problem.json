@@ -1,0 +1,13 @@
+{
+"id":"CHEM-002","domain":"chemistry","title":"過渡金屬自旋態能差的可靠計算","status":"OPEN","priority":"B","checked_on":"2026-09-27",
+"statement":"對明列自旋交叉配合物，如何在分子與晶體環境下可靠預測高低自旋能差及其不確定性，並區分電子能與有限溫自由能？",
+"known_result":"2025 molecular／periodic xTB基準指出小自旋能差與週期環境使方法選擇困難，提供一批方法比較。",
+"open_gap":"跨配體、金屬與環境的可遷移誤差控制，以及氣相與固體測量的差異。",
+"first_task":"挑少量合法公開良性參照幾何，核對氧化態、自旋及目標量；先重算／重評基線，不自行合成配合物。",
+"evaluator":"相同幾何下能差、結構鬆弛與溫度修正分列；參照不確定性及方法敏感性。",
+"validation_limits":"正確預測一個自旋基態不等於能差準確；分子能量不能直接取代晶體自由能。",
+"completion_criterion":"限定系統與條件下獨立驗證的子結果；一般自旋能差問題不因單組測試關閉。",
+"screening_note":"已讀正式原始摘要；當輪需重查新方法、資料及勘誤。",
+"screening_queries":["\"Benchmarking Molecular and Periodic Extended Tight Binding\" \"2025\""],
+"sources":[{"title":"Benchmarking Molecular and Periodic Extended Tight Binding Methods for Spin-State Energies in Spin-Crossover Systems (2025)","url":"https://pubs.acs.org/doi/abs/10.1021/acs.jpcc.4c08002","kind":"primary","supports":"自旋交叉能差及週期系統的計算困難與基準。"}]
+}

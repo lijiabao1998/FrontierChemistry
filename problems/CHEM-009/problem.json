@@ -1,0 +1,13 @@
+{
+"id":"CHEM-009","domain":"chemistry","title":"圓錐交叉附近的非絕熱動力學準確性與效率","status":"OPEN","priority":"B","checked_on":"2026-09-27",
+"statement":"如何在受控成本下描述同對稱激發態圓錐交叉的拓撲與動力學，並在未見模型條件保持正確的相位、機率及能量行为？",
+"known_result":"SCC2方法针对標準coupled-cluster在部分圓錐交叉出現不物理複數能量的問題提出進展；此結果不等於任意大分子動力學已解。",
+"open_gap":"可遷移拓撲、相位與波包動力學精度，及成本—誤差關係。",
+"first_task":"先建立兩電子態／兩核坐標的良性toy Hamiltonian，與小網格精確波包基線比較；此步不需要真實危險分子。",
+"evaluator":"Hamiltonian合法性、機率守恆、能量與時間步／網格收斂、相位／規範變換不變性及不同表象對照。",
+"validation_limits":"靜態能面正確不保證動力學正確；toy model通過不代表一般光化學通解。",
+"completion_criterion":"凍結模型族的獨立動力學驗證／誤差結論；一般非絕熱化學父題保留。",
+"screening_note":"已核對原始正式摘要，未實際跑耦合叢集或波包模擬。",
+"screening_queries":["\"Similarity Constrained CC2\" \"Nonadiabatic\""],
+"sources":[{"title":"Similarity Constrained CC2: Toward Efficient Coupled Cluster Nonadiabatic Dynamics among Excited States (2025)","url":"https://pubs.acs.org/doi/full/10.1021/acs.jctc.5c00997","kind":"primary","supports":"圓錐交叉拓撲與計算方法進展及適用範圍。"}]
+}

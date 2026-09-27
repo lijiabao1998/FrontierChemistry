@@ -1,0 +1,13 @@
+{
+"id":"CHEM-010","domain":"chemistry","title":"晶體穩定性預測到前瞻材料發現的落差","status":"OPEN","priority":"A","checked_on":"2026-09-27",
+"statement":"在未見化學系統及前瞻候選下，如何可靠預測相對競爭相的穩定性與假陽性成本，並區分DFT參照穩定、動態穩定及可合成性？",
+"known_result":"Matbench Discovery明列formation energy與thermodynamic stability、回顧與前瞻benchmark的落差；原始文章已有2025-09-02作者更正。",
+"open_gap":"參照hull不完備、有限溫／動態效應、資料移位與真實合成之外推。",
+"first_task":"先以更正後文章與固定資料版本重現小子集評分，核hull參照和資料切分，再查模型是否用了不允許的後續資料。",
+"evaluator":"固定參照convex hull下precision／recall／假陽性與成本、資料洩漏、候選鬆弛及不確定性；實驗與計算label分開。",
+"validation_limits":"DFT低於hull不保證實際可合成；全局MAE低也可能有大量決策邊界假陽性。",
+"completion_criterion":"凍結前瞻評估子題的獨立改善；一般材料發現問題不能因排行榜高分完成。",
+"screening_note":"已讀原文摘要、限制和更正提示；下一輪必須查更正細節及當前基準版本，不沿用過期排名。",
+"screening_queries":["\"A framework to evaluate machine learning crystal stability predictions\""],
+"sources":[{"title":"A framework to evaluate machine learning crystal stability predictions (2025; corrected)","url":"https://doi.org/10.1038/s42256-025-01055-1","kind":"primary","supports":"前瞻穩定性評估、假陽性與DFT／合成性界線。"}]
+}

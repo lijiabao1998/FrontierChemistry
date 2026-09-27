@@ -1,0 +1,13 @@
+{
+"id":"CHEM-003","domain":"chemistry","title":"液相活化自由能障壁的反應族與溶劑外推","status":"OPEN","priority":"A","checked_on":"2026-09-27",
+"statement":"對低風險、已公開反應資料，如何可靠預測未見反應族／溶劑下的活化Gibbs自由能，分辨絕對誤差與相對誤差抵消？",
+"known_result":"LiPRED-2026提供多種液相活化自由能計算法的資料及比較；原文明示反應類型仍有限、絕對與相對障壁誤差不同。",
+"open_gap":"未見反應／溶劑的泛化與溶劑模型、構象、參照實驗的系統誤差。",
+"first_task":"只取合法良性資料子集，核對標準態及溫度，以反應族和溶劑留出重現基線；不產出合成操作。",
+"evaluator":"凍結切分的絕對／相對自由能誤差、分組校準、原子／電荷一致性及參照條件核對。",
+"validation_limits":"同一反應多個溶劑隨機切分可洩漏；QM計算label不等於實驗真值；低相對誤差可能來自抵消。",
+"completion_criterion":"完成明列資料與外推範圍的子驗證；一般液相動力學問題不因基準高分完成。",
+"screening_note":"本次讀原始摘要、結論及資料可用性；尚未下載Zenodo資料或重現計算。",
+"screening_queries":["\"LiPRED-2026\""],
+"sources":[{"title":"Generation and benchmarking of a diverse reaction database of quantum mechanical liquid-phase activation Gibbs free energies (2026)","url":"https://doi.org/10.1039/D6CP00088F","kind":"primary","supports":"LiPRED、誤差抵消、有限反應類型與未來擴充缺口。"}]
+}

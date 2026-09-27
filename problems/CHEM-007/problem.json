@@ -1,0 +1,13 @@
+{
+"id":"CHEM-007","domain":"chemistry","title":"operando催化活性位點重構的可識別性","status":"OPEN","priority":"C","checked_on":"2026-09-27",
+"statement":"從操作中量測的結構／光譜與反應資料，哪些動態活性位點模型可被區分？如何避免用靜態初始結構解釋所有操作條件？",
+"known_result":"2025 Cu基perovskite研究显示A位組成會影響操作中重構及產物分布；這是特定材料系列的機制結果。",
+"open_gap":"多種重構狀態與量測訊號的非唯一映射，以及跨材料／時間條件的外推。",
+"first_task":"只讀公開結構與量測摘要／數據，凍結一個安全資料案例，畫假設依賴圖並比较兩個可區分模型，不提供合成步驟。",
+"evaluator":"光譜／結構正向模型、留出條件預測、參數可識別性、替代模型及獨立量測一致性。",
+"validation_limits":"靜態DFT最優位點不是operando已觀測位點；單光譜擬合不證唯一結構。",
+"completion_criterion":"指定系統的結構—活性映射經獨立驗證；不以特定催化系列關閉一般動態位點問題。",
+"screening_note":"本次讀原始摘要及研究團隊說明，沒有製作催化劑或進行電化學實驗。",
+"screening_queries":["\"A-Site Cation-Regulated Operando Restructuring\""],
+"sources":[{"title":"A-Site Cation-Regulated Operando Restructuring of Cu-Based Perovskite Oxides for Selective Carbon Monoxide Electroreduction (2025)","url":"https://doi.org/10.1002/anie.202513246","kind":"primary","supports":"特定材料operando重構與活性關聯，scope不是一般通解。"}]
+}

@@ -1,0 +1,13 @@
+{
+"id":"CHEM-005","domain":"chemistry","title":"晶體多形體在有限溫下的自由能排序","status":"OPEN","priority":"B","checked_on":"2026-09-27",
+"statement":"對預先指定的良性分子晶體候選，如何以受控誤差預測不同多形體在指定溫壓下的穩定排序，並處理未觀測形式與取樣不完備？",
+"known_result":"第七次CSP盲測的排序研究比較DFT-D、ML勢能等，部分系統有限溫修正有效，部分仍顯示可能未觀測的更穩多形體。",
+"open_gap":"小自由能差、構象／熵／晶型搜尋不完備及方法誤差交互作用。",
+"first_task":"核盲測結構及資料授權，先對一個安全小系統重現排序評分，區分晶格能與有限溫自由能。",
+"evaluator":"結構去重、相同標準下的相對能量／自由能、排序不確定性、溫度敏感性與獨立方法對照。",
+"validation_limits":"某計算最低能晶型未必可觀測／可合成；有限候選排序不能保證全域最穩。",
+"completion_criterion":"指定系統、候選範圍及溫壓下的獨立確認子結果；一般多形體問題保留。",
+"screening_note":"已讀原始盲測文章摘要與組織方法；未完整下載候選結構或跑能量計算。",
+"screening_queries":["\"seventh blind test\" \"structure ranking methods\""],
+"sources":[{"title":"The seventh blind test of crystal structure prediction: structure ranking methods (2024)","url":"https://journals.iucr.org/b/issues/2024/06/00/aw5094/index.html","kind":"primary","supports":"盲測排序結果、有限溫改進與未解限制。"}]
+}

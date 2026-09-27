@@ -1,0 +1,13 @@
+{
+"id":"CHEM-004","domain":"chemistry","title":"溶劑化自由能跨分子與電荷條件的可遷移性","status":"OPEN","priority":"A","checked_on":"2026-09-27",
+"statement":"能否在未見分子骨架、溶劑及電荷條件下，以可負擔成本預測溶劑化自由能及可信誤差？各階段分開處理中性分子與離子標準態，不混成單一榜單。",
+"known_result":"Moore等2026以ML勢能與alchemical方法在一批中性有機分子取得接近實驗误差的结果；作者方法的中性訓練範圍不等於離子與任意溶劑已解。",
+"open_gap":"訓練範圍之外、電荷／構象變化與溶劑條件的可遷移誤差。",
+"first_task":"首輪只處理公開良性中性分子的小資料子集：核單位、溫度、標準態、重複分子及參照不確定性，重現基線表；離子另立子任務後再做。",
+"evaluator":"分子骨架／溶劑留出、MAE與區間、熱力學循環一致性、取樣收斂；離子需記單離子慣例及有限尺寸修正。",
+"validation_limits":"作者在中性分子的成功不能直接外推離子；力場误差、取樣误差與實驗误差分开。",
+"completion_criterion":"凍結化學範圍的子任務經獨立驗證；普遍溶劑化自由能問題不能由一份資料集完成。",
+"screening_note":"已讀原始摘要、方法適用範圍及結論；沒有啟動多GPU運算或下載受限資料。",
+"screening_queries":["\"Computing Solvation Free Energies of Small Molecules with Experimental Accuracy\""],
+"sources":[{"title":"Computing Solvation Free Energies of Small Molecules with Experimental Accuracy (2026)","url":"https://pubs.acs.org/doi/abs/10.1021/jacs.5c10940","kind":"primary","supports":"中性分子ML自由能進展、參照資料與適用範圍。"}]
+}

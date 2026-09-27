@@ -1,0 +1,13 @@
+{
+"id":"CHEM-006","domain":"chemistry","title":"固態電解質的化學—力學耦合失效","status":"OPEN","priority":"C","checked_on":"2026-09-27",
+"statement":"在指定固態電解質模型與條件下，如何共同描述電化學分解、應力與枝晶傳播，並對未見條件提出可區分預測？本庫僅計算／公開資料。",
+"known_result":"Fincher等2026直接量測並顯示枝晶可在低於單純機械斷裂門檻的應力下傳播，伴隨電解質分解；純機械敘事不足涵蓋這些條件。",
+"open_gap":"化學相變、脆化與力學的定量耦合，以及材料與條件外推。",
+"first_task":"讀公開原始曲線與條件，先建立合成模型對照，檢查物質／電荷收支與量綱，不自動製作或操作電池。",
+"evaluator":"已知極限、耦合模型敏感性、資料留出、結構可識別性及預測不確定性。",
+"validation_limits":"單一材料的觀測不代表所有電解質；擬合模型不能當成新實驗證據。",
+"completion_criterion":"凍結材料及條件的耦合機制經獨立確認；廣泛電池失效題不因子模型完成。",
+"screening_note":"已讀2026原始摘要與結果說明；未取得新實驗數據或安排濕實驗。",
+"screening_queries":["\"Electrochemical corrosion accompanies dendrite growth\""],
+"sources":[{"title":"Electrochemical corrosion accompanies dendrite growth in solid electrolytes (2026)","url":"https://www.nature.com/articles/s41586-026-10279-z","kind":"primary","supports":"化學分解與枝晶力學的耦合證據。"}]
+}

@@ -1,0 +1,13 @@
+{
+"id":"CHEM-001","domain":"chemistry","title":"強關聯電子下可遷移的交換關聯近似","status":"OPEN","priority":"B","checked_on":"2026-09-27",
+"statement":"能否在可負擔計算成本下，對預先指定的小分子解離與強靜態關聯場景，同時描述靜態及動態關聯且在未見系統可靠外推？",
+"known_result":"Gibney–Boyn2025比較多種XC近似在UKS與混合1-RDMFT下的靜態關聯表現，顯示方法依賴和具體改善；不是任意電子系統的精確低成本通解。",
+"open_gap":"不同鍵結／自旋／解離區域的可遷移性與受控誤差。",
+"first_task":"核查可用參照及軟體授權，先用H2等良性小模型的已知／高精度解離曲線，對照簡單近似；固定基組和自旋。",
+"evaluator":"解離極限、尺寸一致性、自旋／電子數、能量曲線及基組收斂、逐區域誤差。",
+"validation_limits":"有限benchmark最佳不代表泛函普遍有效；基組極限與電子關聯誤差分開。",
+"completion_criterion":"凍結系統族的子任務得到獨立核實改進或界限；一般強關聯近似問題保留剩餘範圍。",
+"screening_note":"已讀原始摘要與近期搜索；未安裝量化套件或重跑作者計算。",
+"screening_queries":["\"Benchmarking and contrasting exchange-correlation\""],
+"sources":[{"title":"Benchmarking and Contrasting Exchange–Correlation Functional Differences in Response to Static Correlation in Unrestricted Kohn–Sham and a Hybrid 1-Electron Reduced Density Matrix Functional Theory (2025)","url":"https://pubs.acs.org/doi/abs/10.1021/acs.jctc.5c00244","kind":"primary","supports":"強靜態關聯的近似比較與方法依賴。"}]
+}
