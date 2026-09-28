@@ -32,10 +32,22 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / ".deps"))
-from rdkit import Chem, RDLogger  # noqa: E402
-from rdkit.Chem.Scaffolds import MurckoScaffold  # noqa: E402
-RDLogger.DisableLog("rdApp.warning")
-RDKIT_VERSION = Chem.rdBase.rdkitVersion
+try:
+    from rdkit import Chem, RDLogger  # noqa: E402
+    from rdkit.Chem.Scaffolds import MurckoScaffold  # noqa: E402
+    RDLogger.DisableLog("rdApp.warning")
+    RDKIT_VERSION = Chem.rdBase.rdkitVersion
+    RDKIT_AVAILABLE = True
+except ImportError:
+    RDKIT_AVAILABLE = False
+    RDKIT_VERSION = None
+    Chem = None
+    MurckoScaffold = None
+# RDKit availability: the committed .deps wheel is cp313-win_amd64; on other
+# platforms install with `pip install --target problems/CHEM-004/experiments/
+# chem004_r1/.deps rdkit`. Without RDKit the C4/Murcko analysis is BLOCKED,
+# not attempted with hand-rolled parsers (two review rounds proved those
+# unreliable).
 SRC = HERE / "lit_data" / "freesolv_database.txt"
 RESULTS = HERE.parent.parent / "results" / "r1"
 SEED = 42
@@ -55,6 +67,9 @@ def parse_database() -> list[dict]:
 
 
 def _mol(smiles: str):
+    if not RDKIT_AVAILABLE:
+        raise ValueError("RDKit unavailable: C4/Murcko analysis BLOCKED; "
+                         "install per round.json remediation_v2.rdkit.install")
     m = Chem.MolFromSmiles(smiles)
     if m is None:
         raise ValueError(f"unparseable SMILES: {smiles}")
