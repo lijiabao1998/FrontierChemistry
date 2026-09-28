@@ -67,7 +67,13 @@ def murcko_scaffold(smiles: str) -> str:
     try:
         m = _mol(smiles)
         sc = MurckoScaffold.GetScaffoldForMol(m)
-        return Chem.MolToSmiles(sc) or "EMPTY_SCAFFOLD"
+        sc_smiles = Chem.MolToSmiles(sc) if sc is not None and sc.GetNumAtoms() > 0 else ""
+        if not sc_smiles:
+            # acyclic molecules have an empty Murcko scaffold; key them by
+            # their canonical molecular SMILES so 320 distinct chains do not
+            # collapse into one group (Codex convergence P1)
+            return "acyclic:" + Chem.MolToSmiles(m)
+        return sc_smiles
     except ValueError:
         return "UNPARSED"
 

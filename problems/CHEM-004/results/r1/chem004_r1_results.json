@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-28T07:07:51+00:00",
+  "generated": "2026-09-28T07:36:43+00:00",
   "n_records": 642,
   "checks_report": {
     "C2_charged_records": [],
@@ -25,28 +25,28 @@
       "n": 129
     },
     "random_scaffoldmean": {
-      "mae": 2.871,
-      "rmse": 4.035,
+      "mae": 2.9,
+      "rmse": 4.119,
       "n": 129
     },
     "scaffold_global": {
-      "mae": 3.545,
-      "rmse": 4.283,
-      "n": 320
+      "mae": 2.742,
+      "rmse": 3.227,
+      "n": 174
     },
     "scaffold_ols2": {
-      "mae": 3.518,
-      "rmse": 4.219,
-      "n": 320
+      "mae": 2.647,
+      "rmse": 3.155,
+      "n": 174
     },
     "scaffold_scaffoldmean": {
-      "mae": 3.545,
-      "rmse": 4.283,
-      "n": 320
+      "mae": 2.742,
+      "rmse": 3.227,
+      "n": 174
     },
-    "leakage_mechanism_gap": -0.674,
-    "n_scaffold_keys_total": 63,
-    "n_scaffold_keys_held_out": 1,
+    "leakage_mechanism_gap": 0.158,
+    "n_scaffold_keys_total": 382,
+    "n_scaffold_keys_held_out": 2,
     "wrong_unit_control": {
       "poisoned": 12,
       "flagged": 8,
@@ -58,7 +58,7 @@
     "C1_record_count": true,
     "C2_net_charge_clean": true,
     "C3_calc_anchor_mae": true,
-    "C4_scaffold_split_degrades": true,
+    "C4_scaffold_split_degrades": false,
     "C5_wrong_unit_flag_rate": false
   },
   "verdict": "CHECKS_FAILED"
