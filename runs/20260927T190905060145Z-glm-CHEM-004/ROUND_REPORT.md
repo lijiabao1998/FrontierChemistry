@@ -36,3 +36,6 @@ JACS primary 僅摘要層級（付費牆）；FreeSolv LICENSE 檔未逐字審�
 - P2 hashes：verify_manifest.py 全綠（最後生成）。
 - P1 報告：主結論統一修正後數字，舊值僅存 history。
 - License：CC BY 4.0 International——URL github.com/MobleyLab/FreeSolv/blob/master/LICENSE、text version Attribution 4.0 International、attribution Mobley & Guthrie 2014 + per-record DOIs。
+
+## Remediation v3（Convergence Wave 三審）
+- C4 **撤回**：真 Murcko（acyclic 以 canonical SMILES 各自成 key）下 scaffold_ols2 2.647 < random_ols2 2.883——無劣化。+0.635 亦是 320-acyclic 塌縮之產物。誠實結論：**本資料集上 scaffold-holdout 劣化未被證示**；C4 凍結檢查 FAIL。T1-T4 exit 0。

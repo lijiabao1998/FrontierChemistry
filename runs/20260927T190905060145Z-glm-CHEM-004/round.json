@@ -129,6 +129,10 @@
         "attribution": "Mobley & Guthrie 2014 (JCAMD) + per-record DOIs"
       },
       "report_correction": "stale C4 values removed from active conclusions"
+    },
+    "remediation_v3": {
+      "c4_retraction": "under true per-molecule acyclic keys the scaffold holdout does NOT degrade (scaffold_ols2 2.647 < random_ols2 2.883): the +0.635 'degradation' was itself an artifact of the 320-acyclic collapse. C4 frozen check honestly FAILS; no scaffold-leakage conclusion is claimed",
+      "tests": "T1-T4 ALL PASS exit 0"
     }
   },
   "admitted_at": "2026-09-27T19:12:17.625850+00:00"
