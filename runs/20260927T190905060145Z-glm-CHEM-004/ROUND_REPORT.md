@@ -12,8 +12,8 @@
 ## C3：基線重現錨點 ✓
 **資料集內建 GAFF calc-vs-exp MAE = 1.114 kcal/mol**（文獻 ~1.2-1.3；凍結帶 [0.9,1.6] 內）。此即「重現基線表」之錨。
 
-## C4 ✗（先驗設計失誤）＋機制補充分析
-凍結比較用 OLS2（全局組成特徵）：scaffold 2.361 vs random 2.49 —— 未劣化（FAIL）。機制：全局組成特徵跨骨架本就泛化。補充分析（非凍結項）：group-aware 基線 random 3.103 vs scaffold-holdout 3.759 = **劣化 +0.656 MAE**——洩漏風險確實存在於依賴骨架同胞資訊的模型。教訓：凍結比較前必須先鎖定 baseline 類別；下一輪執行前重新登記（以 group-aware 為對象）。
+## C4（Convergence Wave 改判：真 Murcko 分割下合法 PASS）
+初版自製 regex scaffold 經兩次 Codex 審查證明不可靠（aromatic 塌縮→digit-adjacent 仍塌縮），已廢除。改用 RDKit MurckoScaffold（in-repo .deps）＋RDKit graph heavy-atom 計數：scaffold_ols2 **3.518** vs random_ols2 **2.883**（劣化 **+0.635 MAE**）——原凍結 C4 檢查以正確實作合法通過。group-aware 基線 2.871→3.545。舊值 2.361/3.103/3.759/+0.656 僅存 remediation 歷史。
 
 ## C5 ✗（偵測器 bug 修正後仍達不到凍結門檻）
 初版偵測器把不確定度也 ×4.184（放水），flag 率僅 25%——修正為用記錄原始 unc 後 **66.7%**。物理天花板：真值 dg_exp ≈ −0.6 kcal/mol 附近之記錄，其 kJ 混淆值（≈ −2.5）落在全域均值附近，全域均值偵測器本質上抓不到。90% 門檻先驗校準失誤——記 FAIL；下一輪預登記特徵化偵測器（per-molecule 預測後 z-score）。
@@ -28,3 +28,11 @@ JACS primary 僅摘要層級（付費牆）；FreeSolv LICENSE 檔未逐字審�
 1. 執行前重新登記 C4（以 group-aware baseline 為對象）與 C5（特徵化偵測器、標定其可達 flag 率）。
 2. 讀 JACS 全文＋blog caveats，列其測試集與 FreeSolv 重疊度。
 3. 引入 RDKit（in-repo）後以真 Murcko scaffold 重跑 split 對照。
+
+## Remediation v2（Convergence Wave，Codex 二審回應）
+- P1 scaffold：RDKit MurckoScaffold（in-repo .deps；安裝：`pip install --target problems/CHEM-004/experiments/chem004_r1/.deps rdkit`）；hand-rolled parser 廢除。正控：benzene/pyridine/cyclohexane/fused ring/同骨架異取代基全過。
+- P1 heavy_atoms：RDKit graph 計數，aromatic 267 筆不再低估。
+- P2 tests_regression：T2 crash 修復；T1–T4 全部實際執行，runner exit code 為準。
+- P2 hashes：verify_manifest.py 全綠（最後生成）。
+- P1 報告：主結論統一修正後數字，舊值僅存 history。
+- License：CC BY 4.0 International——URL github.com/MobleyLab/FreeSolv/blob/master/LICENSE、text version Attribution 4.0 International、attribution Mobley & Guthrie 2014 + per-record DOIs。

@@ -23,12 +23,15 @@ import freesolv_validator as fv  # noqa: E402
 
 
 def test_t1_aromatic_scaffold() -> None:
-    k = fv.naive_scaffold("c1ccccc1")
-    assert k.startswith("ring:"), f"benzene must be a ring key, got {k}"
-    assert k.endswith(":aro")
-    assert fv.naive_scaffold("C1CCCCC1").endswith("ring:CC:1") and not \
-        fv.naive_scaffold("C1CCCCC1").endswith(":aro"), "aliphatic ring must differ"
-    assert fv.naive_scaffold("CO").startswith("acyclic:")
+    """RDKit Murcko positive controls (Codex convergence P1)."""
+    benzene = fv.murcko_scaffold("c1ccccc1")
+    pyridine = fv.murcko_scaffold("c1ccncc1")
+    assert benzene == "c1ccccc1" and pyridine == "c1ccncc1",         "heterocycle must not collapse into benzene"
+    assert fv.murcko_scaffold("C1CCCCC1") == "C1CCCCC1", "aliphatic ring distinct"
+    assert fv.murcko_scaffold("Cc1ccccc1") == benzene,         "same scaffold, different substituent"
+    assert fv.murcko_scaffold("c1cc2ccccc2cc1") not in (benzene, pyridine)
+    assert fv.heavy_atoms("c1ccccc1") == 6, "aromatic heavy atoms counted"
+    assert fv.net_charge("CCCCC[N+](=O)[O-]") == 0
 
 
 def test_t2_fallback_global_mean() -> None:
@@ -46,15 +49,15 @@ def test_t2_fallback_global_mean() -> None:
     from collections import defaultdict
     grp = defaultdict(list)
     for i in tr:
-        grp.setdefault(fv.naive_scaffold(recs[i]["smiles"]), []).append(
+        grp.setdefault(fv.murcko_scaffold(recs[i]["smiles"]), []).append(
             recs[i]["dg_exp"])
     gm = {k: sum(v) / len(v) for k, v in grp.items()}
     mu = sum(recs[i]["dg_exp"] for i in tr) / len(tr)
-    assert abs(mu - sum(gm[k] * len(gm[k]) for k in gm) /
-               sum(len(v) for v in gm.values())) < 1e-9, \
+    assert abs(mu - sum(gm[k] * len(grp[k]) for k in gm) /
+               sum(len(grp[k]) for k in gm)) < 1e-9, \
         "global mean must be the record-weighted mean"
     # the evaluator's fallback for unseen keys is exactly `mu`
-    pred = gm.get(fv.naive_scaffold(recs[te[0]]["smiles"]), mu)
+    pred = gm.get(fv.murcko_scaffold(recs[te[0]]["smiles"]), mu)
     assert pred == mu
     for i, smi in saved.items():
         recs[i]["smiles"] = smi
@@ -64,7 +67,7 @@ def test_t3_license_recorded() -> None:
     lic = (HERE / "lit_data" / "FREESOLV_LICENSE").read_text(encoding="utf-8",
                                                              errors="ignore")
     assert "Attribution 4.0" in lic, "FreeSolv license must be reviewed on file"
-    round_json = json.loads((HERE.parent.parent.parent / "runs" /
+    round_json = json.loads((HERE.parent.parent.parent.parent / "runs" /
                              "20260927T190905060145Z-glm-CHEM-004" /
                              "round.json").read_text(encoding="utf-8"))
     assert round_json["result"]["remediation"]["license_review"][

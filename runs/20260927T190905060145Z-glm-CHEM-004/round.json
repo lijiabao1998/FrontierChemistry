@@ -107,6 +107,28 @@
         ],
         "frozen_checks_status": "C1/C2/C3 pass; C4/C5 remain FAIL as originally frozen - corrected analysis recorded, thresholds to be re-registered in a future round"
       }
+    },
+    "remediation_v2": {
+      "rdkit": {
+        "version": "in-repo .deps wheel",
+        "install": "pip install --target problems/CHEM-004/experiments/chem004_r1/.deps rdkit",
+        "scaffold": "MurckoScaffold.GetScaffoldForMol + MolToSmiles canonical",
+        "hand_rolled_parser": "retired"
+      },
+      "c4_now_passes": {
+        "scaffold_ols2": 3.518,
+        "random_ols2": 2.883,
+        "degradation": "+0.635 MAE",
+        "note": "with correct aromatic heavy-atom counts and true Murcko keys the originally frozen C4 check passes legitimately"
+      },
+      "c5": "remains FAIL (0.667 vs frozen 0.90) — global-mean detector ceiling; re-registration deferred",
+      "license": {
+        "license": "CC BY 4.0 International",
+        "url": "https://github.com/MobleyLab/FreeSolv/blob/master/LICENSE",
+        "text_version": "Attribution 4.0 International",
+        "attribution": "Mobley & Guthrie 2014 (JCAMD) + per-record DOIs"
+      },
+      "report_correction": "stale C4 values removed from active conclusions"
     }
   },
   "admitted_at": "2026-09-27T19:12:17.625850+00:00"

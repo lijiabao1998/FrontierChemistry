@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T20:32:55+00:00",
+  "generated": "2026-09-28T07:07:51+00:00",
   "n_records": 642,
   "checks_report": {
     "C2_charged_records": [],
@@ -20,32 +20,32 @@
       "n": 129
     },
     "random_ols2": {
-      "mae": 2.49,
-      "rmse": 3.454,
+      "mae": 2.883,
+      "rmse": 3.952,
       "n": 129
     },
     "random_scaffoldmean": {
-      "mae": 2.327,
-      "rmse": 3.645,
+      "mae": 2.871,
+      "rmse": 4.035,
       "n": 129
     },
     "scaffold_global": {
-      "mae": 2.85,
-      "rmse": 3.403,
-      "n": 174
+      "mae": 3.545,
+      "rmse": 4.283,
+      "n": 320
     },
     "scaffold_ols2": {
-      "mae": 2.035,
-      "rmse": 2.557,
-      "n": 174
+      "mae": 3.518,
+      "rmse": 4.219,
+      "n": 320
     },
     "scaffold_scaffoldmean": {
-      "mae": 2.85,
-      "rmse": 3.403,
-      "n": 174
+      "mae": 3.545,
+      "rmse": 4.283,
+      "n": 320
     },
-    "leakage_mechanism_gap": -0.523,
-    "n_scaffold_keys_total": 175,
+    "leakage_mechanism_gap": -0.674,
+    "n_scaffold_keys_total": 63,
     "n_scaffold_keys_held_out": 1,
     "wrong_unit_control": {
       "poisoned": 12,
@@ -58,7 +58,7 @@
     "C1_record_count": true,
     "C2_net_charge_clean": true,
     "C3_calc_anchor_mae": true,
-    "C4_scaffold_split_degrades": false,
+    "C4_scaffold_split_degrades": true,
     "C5_wrong_unit_flag_rate": false
   },
   "verdict": "CHECKS_FAILED"

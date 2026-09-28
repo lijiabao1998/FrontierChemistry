@@ -22,6 +22,7 @@ requires RDKit and is unavailable under the stdlib constraint.
 """
 from __future__ import annotations
 import json
+import sys
 import math
 import random
 import re
@@ -30,6 +31,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE / ".deps"))
+from rdkit import Chem, RDLogger  # noqa: E402
+from rdkit.Chem.Scaffolds import MurckoScaffold  # noqa: E402
+RDLogger.DisableLog("rdApp.warning")
+RDKIT_VERSION = Chem.rdBase.rdkitVersion
 SRC = HERE / "lit_data" / "freesolv_database.txt"
 RESULTS = HERE.parent.parent / "results" / "r1"
 SEED = 42
@@ -48,72 +54,37 @@ def parse_database() -> list[dict]:
     return recs
 
 
-BRACKET_ATOM = re.compile(r"\[([^]]+)\]")
-CHARGE = re.compile(r"([+-]\d?)$")
-ATOM = re.compile(r"(Cl|Br|Si|[BCNOPSFI])")
+def _mol(smiles: str):
+    m = Chem.MolFromSmiles(smiles)
+    if m is None:
+        raise ValueError(f"unparseable SMILES: {smiles}")
+    return m
 
 
-def net_charge(smiles: str) -> int:
-    total = 0
-    for body in BRACKET_ATOM.findall(smiles):
-        m = CHARGE.search(body)
-        if m:
-            tok = m.group(1)
-            total += int(tok + "1") if tok in "+-" else int(tok)
-    return total
+def murcko_scaffold(smiles: str) -> str:
+    """Canonical Bemis-Murcko scaffold via RDKit (Codex P1: hand-rolled regex
+    parsers collapsed aromatics/heterocycles and are retired)."""
+    try:
+        m = _mol(smiles)
+        sc = MurckoScaffold.GetScaffoldForMol(m)
+        return Chem.MolToSmiles(sc) or "EMPTY_SCAFFOLD"
+    except ValueError:
+        return "UNPARSED"
 
 
 def heavy_atoms(smiles: str) -> int:
-    # bracket atoms always heavy here; organic-subset atoms matched outside brackets
-    count = 0
-    pos = 0
-    for m in BRACKET_ATOM.finditer(smiles):
-        count += 1
-        count += len(ATOM.findall(smiles[pos:m.start()]))
-        pos = m.end()
-    count += len(ATOM.findall(smiles[pos:]))
-    return count
+    """Heavy-atom count from the RDKit molecular graph (Codex P1: the old
+    uppercase-only regex undercounted every aromatic record)."""
+    return _mol(smiles).GetNumHeavyAtoms()
 
 
 def hetero_atoms(smiles: str) -> int:
-    return len(re.findall(r"[NOPS]", smiles.replace("[", "").replace("]", "")))
+    return sum(1 for a in _mol(smiles).GetAtoms()
+               if a.GetAtomicNum() not in (1, 6))
 
 
-ATOM_TOK = re.compile(r"\[([^]]+)\]|(Cl|Br|[BCNOPSFIbcnops])")
-
-
-def naive_scaffold(smiles: str) -> str:
-    """Composition+ring approximation of a scaffold key (Codex-review fixed).
-
-    Initial version matched only uppercase organic atoms, so aromatic rings
-    (c1ccccc1) were invisible and 483/642 records collapsed into one acyclic
-    key. Now: strip stereo/charges, tokenise bracket + organic atoms (upper
-    and lowercase), collect atoms carrying ring-closure digits, and key ring
-    systems by sorted element signature + ring count + aromaticity; acyclic
-    molecules key by their full element histogram. Still an approximation of
-    Bemis-Murcko (which needs RDKit).
-    """
-    s = smiles.replace("@", "").replace("\\", "").replace("/", "")
-    digit_atoms = []
-    for m in ATOM_TOK.finditer(s):
-        tail = s[m.end():m.end() + 2]
-        if not re.match(r"\d", tail):
-            continue
-        if m.group(1) is not None:
-            mm = re.match(r"[A-Z][a-z]?", m.group(1))
-            el = mm.group(0) if mm else "X"
-        else:
-            el = m.group(2)
-        digit_atoms.append(el.upper())
-    if digit_atoms:
-        n_rings = max(len(re.findall(r"\d", s)) // 2, 0)
-        aromatic = bool(re.search(r"[bcnops]", s))
-        return ("ring:" + "".join(sorted(digit_atoms)) + ":" + str(n_rings)
-                + (":aro" if aromatic else ""))
-    hist = tuple(sorted(Counter(
-        (m.group(1) or m.group(2)).upper() for m in ATOM_TOK.finditer(s)
-        if not (m.group(1) and len(m.group(1)) == 0)).items()))
-    return "acyclic:" + str(hist)
+def net_charge(smiles: str) -> int:
+    return sum(a.GetFormalCharge() for a in _mol(smiles).GetAtoms())
 
 
 def mae(errs) -> float:
@@ -160,10 +131,10 @@ def main() -> int:
         elif baseline == "scaffold_mean":
             grp = defaultdict(list)
             for i in tr:
-                grp[naive_scaffold(recs[i]["smiles"])].append(recs[i]["dg_exp"])
+                grp[murcko_scaffold(recs[i]["smiles"])].append(recs[i]["dg_exp"])
             gm = {k: sum(v) / len(v) for k, v in grp.items()}
             mu = sum(recs[i]["dg_exp"] for i in tr) / len(tr)  # true global mean (Codex fix)
-            preds = {i: gm.get(naive_scaffold(recs[i]["smiles"]), mu) for i in te}
+            preds = {i: gm.get(murcko_scaffold(recs[i]["smiles"]), mu) for i in te}
         else:  # ols2: heavy atoms + hetero atoms
             xs = [[heavy_atoms(recs[i]["smiles"]), hetero_atoms(recs[i]["smiles"])]
                   for i in tr]
@@ -195,7 +166,7 @@ def main() -> int:
     # scaffold split: hold out whole scaffold keys (largest 25% of keys by records)
     keys = defaultdict(list)
     for i in idx:
-        keys[naive_scaffold(recs[i]["smiles"])].append(i)
+        keys[murcko_scaffold(recs[i]["smiles"])].append(i)
     key_names = sorted(keys, key=lambda k: -len(keys[k]))
     hold_keys = set()
     acc = 0
