@@ -1,0 +1,36 @@
+"""Maintenance tests for the hash gate, with corrupted bytes and malformed inputs."""
+import hashlib
+import unittest
+from verify_manifest import verify
+
+
+class ManifestTests(unittest.TestCase):
+    def test_exact_bytes_pass(self):
+        body = b"one\ntwo\n"
+        files = {"data.txt": body, "results/r1/hashes.txt":
+                 (hashlib.sha256(body).hexdigest() + " *data.txt\n").encode()}
+        self.assertEqual(verify(files.__getitem__), (1, []))
+
+    def test_line_ending_change_is_not_normalised_away(self):
+        body = b"one\ntwo\n"
+        files = {"data.txt": body.replace(b"\n", b"\r\n"), "results/r1/hashes.txt":
+                 (hashlib.sha256(body).hexdigest() + " *data.txt\n").encode()}
+        self.assertTrue(verify(files.__getitem__)[1])
+
+    def test_empty_malformed_duplicate_and_traversal_fail(self):
+        digest = hashlib.sha256(b"data").hexdigest()
+        for manifest in ["", "not-a-hash *data.txt", digest + " *../data.txt",
+                         f"{digest} *data.txt\n{digest} *data.txt\n"]:
+            files = {"data.txt": b"data", "results/r1/hashes.txt": manifest.encode()}
+            self.assertTrue(verify(files.__getitem__)[1], manifest)
+
+    def test_missing_file_fails(self):
+        def missing(name):
+            if name == "results/r1/hashes.txt":
+                return ("0" * 64 + " *missing.txt\n").encode()
+            raise FileNotFoundError(name)
+        self.assertTrue(verify(missing)[1])
+
+
+if __name__ == "__main__":
+    unittest.main()
