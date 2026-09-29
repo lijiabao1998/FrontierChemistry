@@ -32,3 +32,5 @@ Maintenance results: 4 integrity tests PASS; working manifest 7/7 PASS. Before c
 Post-commit 312e963 verified 7/7 Git blobs. Independent review reran four tests, rejected bdca662, verified unchanged model/results, then requested completion/index corrections; these are now incorporated. Scientific acceptance remains unverified.
 
 Automatic review on 312e963 identified the Windows-only binary import crash and incomplete dependency provenance. The repair now blocks incompatible CPython/platform tags before importing bundled code, catches loader failures, and binds all 2019 tracked dependency files plus version metadata. This does not retrofit proof of the historical execution environment. Git verification uses one cat-file batch process.
+
+Dependency repair validation: five integrity/platform tests PASS; all 2027 manifest entries match both working bytes and commit 8929fe5. Source line endings then canonicalized to LF with the manifest regenerated. No numerical model replay performed.
