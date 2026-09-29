@@ -28,3 +28,5 @@ fresh search, preregistered scaffold policy, evaluator and independent verificat
 Validation commands and actual results are appended after execution.
 
 Maintenance results: 4 integrity tests PASS; working manifest 7/7 PASS. Before commit, --git-revision HEAD on bdca662 reproduces the original tests_regression.py mismatch (expected exit 1). Pinned governance validates all 10 problem cards. Model and scientific result JSON are unchanged. Post-commit validation follows.
+
+Post-commit 312e963 verified 7/7 Git blobs. Independent review reran four tests, rejected bdca662, verified unchanged model/results, then requested completion/index corrections; these are now incorporated. Scientific acceptance remains unverified.

@@ -82,7 +82,7 @@
     "problems/CHEM-004/results/r1/environment.txt"
   ],
   "result": {
-    "state": "ROUND_FINISHED",
+    "state": "HISTORICAL_UNVERIFIED_RESULTS_RECORDED",
     "verdict": "NO_RESOLUTION_FOUND",
     "summary": "Historical FreeSolv snapshot: 642 records; recorded GAFF MAE 1.114. C4 v4 split is post-hoc, no degradation demonstrated (2.647 < 2.883); previous +0.635/+0.656 claims withdrawn. C5 fails: 8/12 (66.7%) < 90%. No new scientific result or independent replication in GPT maintenance.",
     "skeptic_bugs_found": [
@@ -142,7 +142,8 @@
       "scientific_rerun": "NOT_RUN",
       "independent_chemical_validation": "NOT_RUN",
       "historical_record": "history/bdca662/round.json",
-      "admission_limit": "Historical admitted_at precedes checked_at; this maintenance does not certify original admission chronology."
+      "admission_limit": "Historical admitted_at precedes checked_at; this maintenance does not certify original admission chronology.",
+      "independent_integrity_review": "Separate agent reviewed 312e963: exact committed 7/7 hash checks and four negative-test methods passed; no scientific validation claimed; stale completion/index text then corrected."
     }
   },
   "admitted_at": "2026-09-27T19:12:17.625850+00:00"
