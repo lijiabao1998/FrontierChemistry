@@ -23,6 +23,7 @@ requires RDKit and is unavailable under the stdlib constraint.
 from __future__ import annotations
 import json
 import sys
+import sysconfig
 import math
 import random
 import re
@@ -31,18 +32,25 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE / ".deps"))
-try:
-    from rdkit import Chem, RDLogger  # noqa: E402
-    from rdkit.Chem.Scaffolds import MurckoScaffold  # noqa: E402
-    RDLogger.DisableLog("rdApp.warning")
-    RDKIT_VERSION = Chem.rdBase.rdkitVersion
-    RDKIT_AVAILABLE = True
-except ImportError:
-    RDKIT_AVAILABLE = False
-    RDKIT_VERSION = None
-    Chem = None
-    MurckoScaffold = None
+RDKIT_AVAILABLE = False
+RDKIT_VERSION = None
+Chem = None
+MurckoScaffold = None
+RDKIT_BLOCK_REASON = "Bundled dependencies require CPython 3.13, win-amd64"
+# Refuse incompatible binary wheels BEFORE importing their platform-specific
+# bootstrap code (which calls os.add_dll_directory on Windows).
+if (sys.implementation.name == "cpython" and sys.version_info[:2] == (3, 13)
+        and sysconfig.get_platform() == "win-amd64"):
+    sys.path.insert(0, str(HERE / ".deps"))
+    try:
+        from rdkit import Chem, RDLogger  # noqa: E402
+        from rdkit.Chem.Scaffolds import MurckoScaffold  # noqa: E402
+        RDLogger.DisableLog("rdApp.warning")
+        RDKIT_VERSION = Chem.rdBase.rdkitVersion
+        RDKIT_AVAILABLE = True
+        RDKIT_BLOCK_REASON = None
+    except (ImportError, OSError, AttributeError) as exc:
+        RDKIT_BLOCK_REASON = f"Bundled RDKit could not load: {type(exc).__name__}: {exc}"
 # RDKit availability: the committed .deps wheel is cp313-win_amd64; on other
 # platforms install with `pip install --target problems/CHEM-004/experiments/
 # chem004_r1/.deps rdkit`. Without RDKit the C4/Murcko analysis is BLOCKED,
@@ -113,6 +121,10 @@ def mae(errs) -> float:
 
 
 def main() -> int:
+    if not RDKIT_AVAILABLE:
+        print(json.dumps({"verdict": "BLOCKED_DEPENDENCY", "reason": RDKIT_BLOCK_REASON,
+                          "result_written": False, "historical_result_is_not_a_new_run": True}))
+        return 2
     recs = parse_database()
     out = {"generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
            "n_records": len(recs)}

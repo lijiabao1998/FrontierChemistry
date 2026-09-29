@@ -49,14 +49,26 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--git-revision")
     args = parser.parse_args()
+    batch = None
     try:
         if args.git_revision:
             repo = ROOT.parents[1]
             commit = subprocess.check_output(["git", "-C", str(repo), "rev-parse", "--verify",
                          "--end-of-options", args.git_revision + "^{commit}"], encoding="ascii").strip()
+            batch = subprocess.Popen(["git", "-C", str(repo), "cat-file", "--batch"],
+                                     stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE)
             def read_bytes(name):
-                return subprocess.check_output(["git", "-C", str(repo), "show",
-                                                f"{commit}:problems/CHEM-004/{name}"], stderr=subprocess.PIPE)
+                batch.stdin.write(f"{commit}:problems/CHEM-004/{name}\n".encode("utf-8"))
+                batch.stdin.flush()
+                header = batch.stdout.readline().split()
+                if len(header) != 3 or header[1] != b"blob":
+                    raise FileNotFoundError(name)
+                size = int(header[2])
+                data = batch.stdout.read(size)
+                if len(data) != size or batch.stdout.read(1) != b"\n":
+                    raise OSError("incomplete Git blob stream")
+                return data
         else:
             def read_bytes(name):
                 path = ROOT / name
@@ -66,6 +78,12 @@ def main():
         count, errors = verify(read_bytes)
     except (OSError, ValueError, subprocess.CalledProcessError) as exc:
         count, errors = 0, [str(exc)]
+    finally:
+        if batch is not None:
+            batch.stdin.close()
+            batch.stdout.close()
+            batch.stderr.close()
+            batch.wait()
     for error in errors:
         print(error)
     print(f"{'FAIL' if errors else 'PASS'}: {count} manifest entries ({'commit bytes' if args.git_revision else 'working bytes'})")

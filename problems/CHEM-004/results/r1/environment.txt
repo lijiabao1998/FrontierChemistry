@@ -1,2 +1,6 @@
-Python 3.13.5
-pin: 07d2b13051b83215182e411e1612f92f1912d8fb; base: 6edd379003c880e5c3e5b1ade556dff21e9a7591; branch: glm/CHEM-004-baseline-r1
+Historical producer: Python 3.13.5 on Windows.
+Governance pin: 07d2b13051b83215182e411e1612f92f1912d8fb
+Bundled wheel target: CPython 3.13 / win-amd64
+Bundled distributions: rdkit 2026.3.6; numpy 2.5.3; pillow 12.3.0
+2026-09-29 provenance correction: all 2019 tracked .deps files are individually included in hashes.txt. These bind the bundled snapshot, not an assertion of a newly executed chemical experiment.
+Other ABIs/platforms: BLOCKED_DEPENDENCY (exit 2) before binary import; no fallback to an unpinned global RDKit installation.

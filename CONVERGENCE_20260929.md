@@ -19,7 +19,7 @@ establish degradation and is not confirmatory. C5 remains 8/12 (66.7%), below 90
 Prior +0.635/+0.656 claims are withdrawn; copies of the original round/report/manifest
 are kept in the round's history/bdca662 directory.
 
-The scientific result JSON and freesolv_validator.py are unchanged in this repair.
+The scientific result JSON and numerical model are unchanged. A subsequent review added an early binary-dependency guard to freesolv_validator.py; incompatible platforms return BLOCKED before import.
 Full model rerun and independent chemical validation are NOT_RUN. The legacy runner
 also writes a dynamic generated timestamp: frozen artifact identity must not be
 misrepresented as a byte-identical new experiment. A future round needs its own
@@ -30,3 +30,5 @@ Validation commands and actual results are appended after execution.
 Maintenance results: 4 integrity tests PASS; working manifest 7/7 PASS. Before commit, --git-revision HEAD on bdca662 reproduces the original tests_regression.py mismatch (expected exit 1). Pinned governance validates all 10 problem cards. Model and scientific result JSON are unchanged. Post-commit validation follows.
 
 Post-commit 312e963 verified 7/7 Git blobs. Independent review reran four tests, rejected bdca662, verified unchanged model/results, then requested completion/index corrections; these are now incorporated. Scientific acceptance remains unverified.
+
+Automatic review on 312e963 identified the Windows-only binary import crash and incomplete dependency provenance. The repair now blocks incompatible CPython/platform tags before importing bundled code, catches loader failures, and binds all 2019 tracked dependency files plus version metadata. This does not retrofit proof of the historical execution environment. Git verification uses one cat-file batch process.

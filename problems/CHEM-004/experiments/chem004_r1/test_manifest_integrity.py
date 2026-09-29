@@ -1,10 +1,25 @@
 """Maintenance tests for the hash gate, with corrupted bytes and malformed inputs."""
 import hashlib
+from pathlib import Path
+import subprocess
+import sys
 import unittest
 from verify_manifest import verify
 
 
 class ManifestTests(unittest.TestCase):
+    def test_incompatible_bundle_blocks_before_import_without_writing_result(self):
+        here = Path(__file__).resolve().parent
+        result = here.parent.parent / "results/r1/chem004_r1_results.json"
+        before = result.read_bytes()
+        code = "import sysconfig; sysconfig.get_platform=lambda: 'linux-x86_64'; import freesolv_validator as fv; raise SystemExit(fv.main())"
+        process = subprocess.run([sys.executable, "-B", "-c", code], cwd=here,
+                                 capture_output=True, text=True)
+        self.assertEqual(process.returncode, 2, process.stderr)
+        self.assertIn('BLOCKED_DEPENDENCY', process.stdout)
+        self.assertNotIn('Traceback', process.stderr)
+        self.assertEqual(result.read_bytes(), before)
+
     def test_exact_bytes_pass(self):
         body = b"one\ntwo\n"
         files = {"data.txt": body, "results/r1/hashes.txt":
