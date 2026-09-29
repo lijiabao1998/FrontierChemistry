@@ -1,5 +1,6 @@
 """Maintenance tests for the hash gate, with corrupted bytes and malformed inputs."""
 import hashlib
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -17,6 +18,21 @@ class ManifestTests(unittest.TestCase):
                                  capture_output=True, text=True)
         self.assertEqual(process.returncode, 2, process.stderr)
         self.assertIn('BLOCKED_DEPENDENCY', process.stdout)
+        self.assertNotIn('Traceback', process.stderr)
+        self.assertEqual(result.read_bytes(), before)
+
+    def test_incompatible_runner_blocks_before_chemical_assertions(self):
+        here = Path(__file__).resolve().parent
+        result = here.parent.parent / "results/r1/chem004_r1_results.json"
+        before = result.read_bytes()
+        code = "import sysconfig,runpy; sysconfig.get_platform=lambda: 'linux-x86_64'; runpy.run_path('tests_regression.py', run_name='__main__')"
+        process = subprocess.run([sys.executable, "-B", "-c", code], cwd=here,
+                                 capture_output=True, text=True)
+        self.assertEqual(process.returncode, 2, process.stderr)
+        payload = json.loads(process.stdout)
+        self.assertEqual(payload["verdict"], "BLOCKED_DEPENDENCY")
+        self.assertEqual(payload["tests_run"], 0)
+        self.assertIs(payload["result_written"], False)
         self.assertNotIn('Traceback', process.stderr)
         self.assertEqual(result.read_bytes(), before)
 

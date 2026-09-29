@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """CHEM-004 round 1: FreeSolv v0.52 data validator, chemical split, baselines,
-and wrong-unit negative control. Stdlib only, deterministic (seed 42).
+and wrong-unit negative control. The current implementation requires the bundled
+RDKit distribution (CPython 3.13 / win-amd64); existing split seed is 42.
 
-Checks (pre-registered in round.json):
+Historical acceptance checks recorded in round.json (not newly certified here):
   C1 parse 640-644 records
   C2 zero records with net formal charge != 0 (bracket-charge sum; nitro +/- cancel)
   C3 reproduce the dataset's own GAFF calc-vs-exp MAE within [0.9, 1.6] kcal/mol
@@ -16,9 +17,13 @@ Checks (pre-registered in round.json):
 Dataset-level conventions recorded: kcal/mol, 298 K, 1 atm gas -> 1 M solution
 standard state, neutral solutes (per file header and Mobley & Guthrie 2014).
 
-The naive scaffold key (ring-system element-class signature; acyclics grouped by
-heavy-atom count bucket) is an explicit approximation of Bemis-Murcko, which
-requires RDKit and is unavailable under the stdlib constraint.
+The original acceptance used a naive scaffold key. The current v4 implementation
+uses RDKit Murcko keys, with per-molecule canonical SMILES for acyclic structures.
+That key change was post-hoc; C4 is not a confirmatory preregistered result. The
+recorded scientific output remains historical and independently unverified.
+Unsupported bundled-wheel platforms return BLOCKED_DEPENDENCY/exit 2 before
+import or result serialization. A compatible run still writes a current timestamp;
+artifact identity must not be represented as an independently reproduced experiment.
 """
 from __future__ import annotations
 import json
@@ -51,11 +56,9 @@ if (sys.implementation.name == "cpython" and sys.version_info[:2] == (3, 13)
         RDKIT_BLOCK_REASON = None
     except (ImportError, OSError, AttributeError) as exc:
         RDKIT_BLOCK_REASON = f"Bundled RDKit could not load: {type(exc).__name__}: {exc}"
-# RDKit availability: the committed .deps wheel is cp313-win_amd64; on other
-# platforms install with `pip install --target problems/CHEM-004/experiments/
-# chem004_r1/.deps rdkit`. Without RDKit the C4/Murcko analysis is BLOCKED,
-# not attempted with hand-rolled parsers (two review rounds proved those
-# unreliable).
+# The committed dependency snapshot is restricted to CPython 3.13 / win-amd64.
+# Other platforms are BLOCKED. Supporting another distribution requires an
+# explicit dependency/provenance update; this maintenance installs nothing.
 SRC = HERE / "lit_data" / "freesolv_database.txt"
 RESULTS = HERE.parent.parent / "results" / "r1"
 SEED = 42
@@ -77,7 +80,7 @@ def parse_database() -> list[dict]:
 def _mol(smiles: str):
     if not RDKIT_AVAILABLE:
         raise ValueError("RDKit unavailable: C4/Murcko analysis BLOCKED; "
-                         "install per round.json remediation_v2.rdkit.install")
+                         + str(RDKIT_BLOCK_REASON))
     m = Chem.MolFromSmiles(smiles)
     if m is None:
         raise ValueError(f"unparseable SMILES: {smiles}")

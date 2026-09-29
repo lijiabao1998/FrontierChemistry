@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Regression tests for Codex review findings on CHEM-004 r1 (PR #1).
 
-T1 (P1) aromatic scaffold : aromatic ring atoms must produce a 'ring:' key
-                            (benzene was mis-keyed 'acyclic:2' before).
+T1 (P1) aromatic scaffold : RDKit Murcko positive controls distinguish
+                            aromatic/heterocyclic and substituted ring graphs.
 T2 (P1) fallback mean     : unseen-scaffold prediction must equal the weighted
                             global train mean (was unweighted mean of means).
 T3 (P1) license recorded  : the FreeSolv LICENSE file is downloaded and its
                             terms (CC BY 4.0) recorded in the remediation note.
 T4 (P2) hashes current    : sha256sum -c over results/r1/hashes.txt passes.
 
-Exit 0 iff all pass.
+Exit 0 iff all pass. Incompatible bundled dependencies return
+BLOCKED_DEPENDENCY/exit 2 before running any chemical test.
 """
 from __future__ import annotations
 import json
@@ -82,6 +83,12 @@ def test_t4_hashes_current() -> None:
 
 
 if __name__ == "__main__":
+    if not fv.RDKIT_AVAILABLE:
+        print(json.dumps({"verdict": "BLOCKED_DEPENDENCY",
+                          "reason": fv.RDKIT_BLOCK_REASON,
+                          "tests_run": 0, "result_written": False,
+                          "historical_result_is_not_a_new_run": True}))
+        sys.exit(2)
     test_t1_aromatic_scaffold()
     print("T1 aromatic scaffold: PASS")
     test_t2_fallback_global_mean()
