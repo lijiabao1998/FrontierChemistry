@@ -1,7 +1,13 @@
-# 狀態｜2026-09-27 bootstrap
+# Status — 2026-09-29 evidence maintenance
 
-主線CHEM-004：新檢索後，先以小型良性公開資料核對標準態、單位與基線。
+CHEM-004 has one historical baseline round; all 10 problem cards remain OPEN.
+Recorded FreeSolv/GAFF anchor: 1.114 kcal/mol. C4's v4 scaffold key is post-hoc,
+with no demonstrated holdout degradation; earlier +0.635/+0.656 claims withdrawn.
+C5 fails at 66.7% vs 90%. No independent chemical replication or new discovery.
 
-10張初始問題卡；研究輪次0；各題計算/evaluator尚未實作。來源包含原始摘要、可讀論文段落與正式基準；不是全網未解證明，部分來源僅摘要，下一輪重新查。
+GPT is correcting summaries and verifying immutable committed-byte manifests.
+A green record-format CI is not research acceptance. See CONVERGENCE_20260929.md
+and the corrected round report; historical versions remain archived.
 
-沒有新材料、新合成或實验結果；未配置化學軟體、GPU、付費API或常駐agent。流程CI已配置，實際結果看Actions，不預寫成功。分支保護尚未設定。
+Next scientific step: a separately preregistered round with fresh source checks,
+frozen scaffold/split policy and independent validation. Not started this wave.
