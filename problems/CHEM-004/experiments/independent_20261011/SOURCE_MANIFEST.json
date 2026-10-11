@@ -1,0 +1,74 @@
+{
+  "source_head": "6d8232c6addf34f39a1e1a7bc91421f26b5259db",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3791,
+      "sha256": "2ef00be033b788308e605cdf88cf433f2fc79b1abd4af8cc29345e487e673126",
+      "git_blob": "5d178d0945dcc4304b982a38a4e0a83539b4862e"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 758,
+      "sha256": "2cc23f2b45e35c982986d85fbe51a3570c39461b9f13a12e785eace8c47f1b75",
+      "git_blob": "fa5b78e21e7fa526265625525877a30e7209ed58"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1451,
+      "sha256": "066c4d1cefa30b3311e98b0910bf7e9303936bf74c923d9a16bfc1a31bfd8bff",
+      "git_blob": "c67fede32177886d592a64bd6617e5f00a829db4"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 1167,
+      "sha256": "339edee9ab27d5b5177d3ead6756642e2a1faf872b48311c7f58d845e4c8ecba",
+      "git_blob": "0de7271ac763aa0e632546777d269b4a1562615f"
+    },
+    {
+      "path": "GOVERNANCE.lock.json",
+      "bytes": 132,
+      "sha256": "c19b61338d1adaf42d0b4884f71933c885512ad85c1619712212629c38257fac",
+      "git_blob": "42b40262e7510f483494c299a85bdbe7037b0a23"
+    },
+    {
+      "path": "problems/CHEM-004/problem.json",
+      "bytes": 1779,
+      "sha256": "6043e8b66b45cb3ea6dc27d241ec70b16ea86112656cb20df2aab389b2a98bdf",
+      "git_blob": "63387be5364f4d1354d0bb54dc2d4517d4296878"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/chem004_r1/freesolv_validator.py",
+      "bytes": 12798,
+      "sha256": "e65052b91c9b852933da009f5f28b4847f2cd9d01aea2272f4ab294c7b65c245",
+      "git_blob": "3fa78ff963f925e101347872da9cb8f83872b80f"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/chem004_r1/lit_data/freesolv_database.txt",
+      "bytes": 144897,
+      "sha256": "2d13f095713bc39b85f85dd7b4e5483fbb12fc694bf253bb1d92a4c4d484f260",
+      "git_blob": "6c6dbf5d27e646db5a540288ece636f9c915f363"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/chem004_r1/lit_data/FREESOLV_LICENSE",
+      "bytes": 18652,
+      "sha256": "cce5d01fa4a83b794271bd2c28cffdf99afd43c803e6ddefddae39b591ea7448",
+      "git_blob": "53883b1c7add1f76201c2ba4c1d1d17e5cb7ed18"
+    },
+    {
+      "path": "problems/CHEM-004/results/r1/chem004_r1_results.json",
+      "bytes": 1556,
+      "sha256": "a883673094f25c75986e82492bbb0e839f173b8f2dd305bdbeaf69b6167227ca",
+      "git_blob": "00b3d02f50696abf50a9376d067fcd23b077ea4b"
+    },
+    {
+      "path": "runs/20260927T190905060145Z-glm-CHEM-004/round.json",
+      "bytes": 9890,
+      "sha256": "fd43d87a6ed0bea4d82582309c70e809a5fc338445d38ec9337468c5e186e482",
+      "git_blob": "2e0f75271a7367e6cf7fc785078d94165e8d3d99"
+    }
+  ],
+  "dataset_parsed": false,
+  "author_imported": false,
+  "scientific_execution": "NOT_RUN"
+}

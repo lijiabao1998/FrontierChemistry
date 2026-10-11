@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN_PROPOSAL_NOT_ADMITTED",
+  "frozen_at": "2026-10-11T19:07:03+00:00",
+  "scientific_execution": "NOT_RUN",
+  "public_registration": "PENDING_PARENT_COORDINATION",
+  "budget": {
+    "wall_minutes": 30,
+    "usd": 0,
+    "single_cpu": true,
+    "concurrency": 1,
+    "max_named_controls": 100,
+    "preparation_started_at": "2026-10-11T18:47:09+00:00",
+    "preparation_deadline": "2026-10-11T19:17:09+00:00"
+  },
+  "prerequisites": [
+    "Public new-round scope and budget claim posted/read back by parent coordinator",
+    "Independent static protocol review",
+    "Fresh sources and remote head checked",
+    "Official pinned governance admit succeeds",
+    "Exact protocol/source/code bytes committed before scientific execution",
+    "Run one item at a time with single CPU affinity and deadline enforced"
+  ],
+  "preservation": [
+    "Never change prior inputs, failures, evaluator or protected card",
+    "Retain stdout/stderr/exit status of every subprocess, including expected FAIL",
+    "All quoted baseline values remain INHERITED_NOT_RERUN until independent run",
+    "Original broad problem remains OPEN; no merge/deploy"
+  ],
+  "problem_id": "CHEM-004",
+  "source_pr": "https://github.com/lijiabao1998/FrontierChemistry/pull/2",
+  "source_head": "6d8232c6addf34f39a1e1a7bc91421f26b5259db",
+  "governance_pin": "07d2b13051b83215182e411e1612f92f1912d8fb",
+  "goal": "Independent Decimal replay of pinned FreeSolv GAFF/global-mean/C5 components; distinguish replication success from frozen C5 scientific failure.",
+  "dataset": {
+    "path": "problems/CHEM-004/experiments/chem004_r1/lit_data/freesolv_database.txt",
+    "rows": 642,
+    "bytes": 144897,
+    "sha256": "2d13f095713bc39b85f85dd7b4e5483fbb12fc694bf253bb1d92a4c4d484f260",
+    "units": "kcal/mol",
+    "parse": "Independent semicolon parser; finite Decimal exp/calc/unc, unique IDs, strict field presence; no author imports, pickle, RDKit or .deps"
+  },
+  "arithmetic": {
+    "decimal_precision": 60,
+    "display_precision": 3,
+    "display_rounding": "ROUND_HALF_EVEN",
+    "gaff_mae": "sum(abs(calc-exp))/642",
+    "split": "random.Random(42), shuffle original row indices exactly once, first floor(.8*642)=513 train, remaining129 test; no intervening RNG draws",
+    "training_mean": "sum(training exp)/513",
+    "test_mae": "sum(abs(training_mean-test exp))/129",
+    "test_rmse": "sqrt(sum((training_mean-test exp)^2)/129)",
+    "poisoning": "same RNG after shuffle: sample(test_indices, floor(.1*129)=12); multiply labels only by4.184; keep experimental uncertainty unchanged, floor uncertainty at0.1",
+    "flag": "strict abs(training_mean - poisoned_label)/max(original_uncertainty,.1)>10; equivalent exact scaled Decimal comparison avoids a rounded mean at the flag boundary",
+    "C5": "flagged among poisoned /12 >= Decimal('.90'); total scientific success must include C5 and never round .667 up"
+  },
+  "inherited_baseline": {
+    "state": "INHERITED_NOT_RERUN",
+    "gaff_mae_3dp": "1.114",
+    "mean_test_mae_3dp": "3.120",
+    "mean_test_rmse_3dp": "4.382",
+    "poisoned": 12,
+    "hits": 8,
+    "misses": 4,
+    "C5": "FAIL",
+    "C4": "historical FAIL/posthoc criterion retained; NOT_RUN here"
+  },
+  "controls": [
+    {
+      "name": "wrong-denominator",
+      "change": "detection_denominator=flagged_count, detection_fraction=hits/hits,rate=1,C5/total=PASS",
+      "expected": "REJECT"
+    },
+    {
+      "name": "uncertainty-also-scaled",
+      "change": "recompute poisoned flag scores with original uncertainty*4.184 before floor0.1; all poisoned labels remain*4.184",
+      "expected": "REJECT"
+    },
+    {
+      "name": "gaff-mae-tamper",
+      "change": "gaff_mae_3dp='0.000'",
+      "expected": "REJECT"
+    },
+    {
+      "name": "test-mae-tamper",
+      "change": "test_mae_3dp='0.000'",
+      "expected": "REJECT"
+    },
+    {
+      "name": "fail-to-pass",
+      "change": "C5_verdict='PASS' only",
+      "expected": "REJECT"
+    },
+    {
+      "name": "overall-fail-to-pass",
+      "change": "total_scientific_verdict='PASS' only",
+      "expected": "REJECT"
+    },
+    {
+      "name": "missing-check",
+      "change": "remove C5_pass key",
+      "expected": "REJECT"
+    },
+    {
+      "name": "nonfinite-metric",
+      "change": "gaff_mae='NaN'",
+      "expected": "REJECT"
+    },
+    {
+      "name": "poison-id-tamper",
+      "change": "poison_ids[0]='NONEXISTENT_ID'",
+      "expected": "REJECT"
+    }
+  ],
+  "acceptance": "642 unique finite parsed records and displayed independent values match inherited anchors; preserve exact ordered train/test/poison IDs and each flag score; all named contract mutations reject; replication success is separate from C5 FAIL.",
+  "verdict_policy": "If replay matches anchors and controls pass, replication_pass=true but scientific_C5_pass=false and whole-science FAIL/exit1. Missing source/control/hash/registration/admission is fail-closed exit2.",
+  "exclusions": [
+    "Original C2_net_charge_clean: NOT_RUN; no RDKit/net-charge parsing",
+    "Original C4_scaffold_split_degrades: NOT_RUN, historical FAIL/posthoc criterion retained",
+    "thermodynamic-cycle, scaffold-leakage or universality claims",
+    "new MLP/MD calculations",
+    "new unit-reference repair",
+    "universal solvation or ions resolution"
+  ],
+  "preflight": {
+    "checked_at": "2026-10-11T19:01:42+00:00",
+    "verdict": "BLOCKED",
+    "queries": [
+      {
+        "category": "general",
+        "query": "solvation free energy transferable prediction neutral ions FreeSolv 2026 Moore",
+        "engine": "web.run search index",
+        "outcome": "Fresh bounded search after this round started. Primary sources separately opened/read to the stated scope; results are not a full literature or proof audit."
+      },
+      {
+        "category": "discipline",
+        "query": "site:pubs.acs.org 10.1021/jacs.5c10940 solvation",
+        "engine": "web.run search index",
+        "outcome": "Fresh bounded search after this round started. Primary sources separately opened/read to the stated scope; results are not a full literature or proof audit."
+      },
+      {
+        "category": "solution",
+        "query": "solvation free energy transferability solved experimental accuracy 2026",
+        "engine": "web.run search index",
+        "outcome": "Fresh bounded search after this round started. Primary sources separately opened/read to the stated scope; results are not a full literature or proof audit."
+      },
+      {
+        "category": "criticism",
+        "query": "Computing Solvation Free Energies Small Molecules Experimental Accuracy correction erratum retraction 5c10940",
+        "engine": "web.run search index",
+        "outcome": "Fresh bounded search after this round started. Primary sources separately opened/read to the stated scope; results are not a full literature or proof audit."
+      },
+      {
+        "category": "solution",
+        "query": "solvation free energy universal transferable prediction experimental accuracy solved criticism",
+        "engine": "web.run search index",
+        "outcome": "Undated solution perspective. Mixed/noisy results; no verified universal same-scope resolution. Authorized task remains bounded replication/verifier audit."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Moore, Cole, Csanyi, Computing solvation free energies of small molecules with experimental accuracy",
+        "url": "https://arxiv.org/html/2405.18171v6",
+        "kind": "primary",
+        "version": "v6, 2026-02-10",
+        "read_scope": "abstract/version history; HTML neutral-only MACE-OFF24-SC training paragraph IV.1, conclusion excerpt and FreeSolv appendix headings; no full method/proof replay",
+        "supports": "Neutral-only training and organic-solute scope do not establish universal ionic/solvent transferability."
+      },
+      {
+        "title": "MobleyLab FreeSolv README",
+        "url": "https://github.com/MobleyLab/FreeSolv",
+        "kind": "primary",
+        "version": "live README accessed 2026-10-11; actual computation remains pinned repository dataset v0.52",
+        "read_scope": "README purpose, force-field/input description, license caveat and database manifest",
+        "supports": "GAFF/TIP3P/AM1-BCC hydration reference data; CC-BY4 data with original-source caveats; no new simulations."
+      }
+    ],
+    "sources_read": true,
+    "scope_compared": true,
+    "retractions_checked": true,
+    "licenses_checked": true,
+    "safety_checked": true,
+    "baseline_identified": true,
+    "acceptance_frozen": true,
+    "limitations": "Bounded search; corrections not found is not no-correction proof. ACS source was located; v6 HTML excerpts and pinned FreeSolv were read instead. Temperature/standard state not independently transformed or validated; no new chemical simulation.",
+    "scope_comparison": "Organic neutral subset method progress differs from unseen scaffolds/solvents/charges. This round only audits existing numeric file/validator contracts.",
+    "baseline": "PR2 inherited GAFF1.114, meanMAE3.120/RMSE4.382,12poison8hits4misses,C5.667<.90; not a new calculation."
+  },
+  "expected_names": [
+    "wrong-denominator",
+    "uncertainty-also-scaled",
+    "gaff-mae-tamper",
+    "test-mae-tamper",
+    "fail-to-pass",
+    "overall-fail-to-pass",
+    "missing-check",
+    "nonfinite-metric",
+    "poison-id-tamper"
+  ],
+  "control_scope": "Independent report-integrity contract compared to the separately computed Decimal replay; no author chemistry module is imported. This is not an original C2/C4 verifier test.",
+  "infrastructure_failure_policy": "Missing public registration/admission, hashes, input, normal check, any expected named control, empty check set, extra control, exception, timeout or nonfinite number => FAIL_CLOSED/exit2; never PASS. Expected independent AssertionError on a declared negative is recorded as rejection; other subprocess errors are infrastructure failure."
+}
+

@@ -1,0 +1,142 @@
+{
+  "round_id": "20261011T185459650930Z-gpt-CHEM-004",
+  "problem_id": "CHEM-004",
+  "agent": "gpt",
+  "branch": "gpt/CHEM-004-decimal-independent-20261011",
+  "base_sha": "6d8232c6addf34f39a1e1a7bc91421f26b5259db",
+  "started_at": "2026-10-11T18:54:59.650930+00:00",
+  "state": "ROUND_FINISHED",
+  "acceptance": "Frozen PROTOCOL.json SHA256 d3037c4698f311d86f7425d94941306f6d16f24c18599b30d9c76c05f817dd9c. Independent bounded reference/checker replication; all expected controls required; original FAIL retained; no broad completion claim.",
+  "not_done": "NOT_RUN: no numerical calculation or author verifier execution. C2/C4 chemistry, new chemical simulations, causal estimation, full Census tables, merge/deploy and publication are outside this draft.",
+  "budget": {
+    "wall_minutes": 30,
+    "usd": 0,
+    "max_trials": 100,
+    "cpu_affinity_count": 1,
+    "concurrency": 1,
+    "preparation_started_at": "2026-10-11T18:47:09+00:00",
+    "preparation_stop_deadline": "2026-10-11T19:17:09+00:00"
+  },
+  "preflight": {
+    "checked_at": "2026-10-11T19:01:42+00:00",
+    "verdict": "PARTIAL_PROGRESS",
+    "queries": [
+      {
+        "category": "general",
+        "query": "solvation free energy transferable prediction neutral ions FreeSolv 2026 Moore",
+        "engine": "web.run search index",
+        "outcome": "Fresh bounded search after this round started. Primary sources separately opened/read to the stated scope; results are not a full literature or proof audit."
+      },
+      {
+        "category": "discipline",
+        "query": "site:pubs.acs.org 10.1021/jacs.5c10940 solvation",
+        "engine": "web.run search index",
+        "outcome": "Fresh bounded search after this round started. Primary sources separately opened/read to the stated scope; results are not a full literature or proof audit."
+      },
+      {
+        "category": "solution",
+        "query": "solvation free energy transferability solved experimental accuracy 2026",
+        "engine": "web.run search index",
+        "outcome": "Fresh bounded search after this round started. Primary sources separately opened/read to the stated scope; results are not a full literature or proof audit."
+      },
+      {
+        "category": "criticism",
+        "query": "Computing Solvation Free Energies Small Molecules Experimental Accuracy correction erratum retraction 5c10940",
+        "engine": "web.run search index",
+        "outcome": "Fresh bounded search after this round started. Primary sources separately opened/read to the stated scope; results are not a full literature or proof audit."
+      },
+      {
+        "category": "solution",
+        "query": "solvation free energy universal transferable prediction experimental accuracy solved criticism",
+        "engine": "web.run search index",
+        "outcome": "Undated solution perspective. Mixed/noisy results; no verified universal same-scope resolution. Authorized task remains bounded replication/verifier audit."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Moore, Cole, Csanyi, Computing solvation free energies of small molecules with experimental accuracy",
+        "url": "https://arxiv.org/html/2405.18171v6",
+        "kind": "primary",
+        "version": "v6, 2026-02-10",
+        "read_scope": "abstract/version history; HTML neutral-only MACE-OFF24-SC training paragraph IV.1, conclusion excerpt and FreeSolv appendix headings; no full method/proof replay",
+        "supports": "Neutral-only training and organic-solute scope do not establish universal ionic/solvent transferability."
+      },
+      {
+        "title": "MobleyLab FreeSolv README",
+        "url": "https://github.com/MobleyLab/FreeSolv",
+        "kind": "primary",
+        "version": "live README accessed 2026-10-11; actual computation remains pinned repository dataset v0.52",
+        "read_scope": "README purpose, force-field/input description, license caveat and database manifest",
+        "supports": "GAFF/TIP3P/AM1-BCC hydration reference data; CC-BY4 data with original-source caveats; no new simulations."
+      }
+    ],
+    "limitations": "Bounded search; corrections not found is not no-correction proof. ACS source was located; v6 HTML excerpts and pinned FreeSolv were read instead. Temperature/standard state not independently transformed or validated; no new chemical simulation.",
+    "scope_comparison": "Organic neutral subset method progress differs from unseen scaffolds/solvents/charges. This round only audits existing numeric file/validator contracts.",
+    "baseline": "PR2 inherited GAFF1.114, meanMAE3.120/RMSE4.382,12poison8hits4misses,C5.667<.90; not a new calculation.",
+    "sources_read": true,
+    "scope_compared": true,
+    "retractions_checked": true,
+    "licenses_checked": true,
+    "safety_checked": true,
+    "baseline_identified": true,
+    "acceptance_frozen": true
+  },
+  "artifacts": [
+    "problems/CHEM-004/experiments/independent_20261011",
+    "problems/CHEM-004/results/independent_20261011"
+  ],
+  "result": {
+    "verdict": "BOUNDED_REPLICATION_COMPLETE_FROZEN_C5_FAIL",
+    "child_exit_code": 1,
+    "raw_stdout": "problems/CHEM-004/results/independent_20261011/attempt-1/stdout.txt",
+    "raw_stderr": "problems/CHEM-004/results/independent_20261011/attempt-1/stderr.txt",
+    "summary": "problems/CHEM-004/results/independent_20261011/attempt-1/result.json",
+    "scientific_all_criteria_passed": false,
+    "broad_problem_completion": false,
+    "research_runs": 1,
+    "usd": 0
+  },
+  "public_claim": {
+    "status": "POSTED_AND_READ_BACK",
+    "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2#issuecomment-6112642386",
+    "readback_path": "problems/CHEM-004/experiments/independent_20261011/reference/public-claim-readback.json",
+    "readback_sha256": "61b144aae69c69ba86bbac7496328544d03265964a68e1441f73aabf74c6cdd3",
+    "comment_id": 6112642386
+  },
+  "execution": {
+    "finished_at": "2026-10-11T19:13:35.675071+00:00",
+    "wall_seconds": 0.1313681000028737,
+    "child_exit_code": 1,
+    "timed_out": false,
+    "cleanup": {},
+    "result_present": true,
+    "verdict": "BOUNDED_REPLICATION_COMPLETE_FROZEN_C5_FAIL",
+    "status": "COMPLETED_WITH_RETAINED_FAILURE"
+  },
+  "execution_inputs_sha256": {
+    "problems/CHEM-004/experiments/independent_20261011/.gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+    "problems/CHEM-004/experiments/independent_20261011/admission_guard.py": "bdb2e5adc78e3746d3d5969a767ad31e452e97adddf1af2fbed1cb7c4ff3eace",
+    "problems/CHEM-004/experiments/independent_20261011/PROTOCOL.json": "d3037c4698f311d86f7425d94941306f6d16f24c18599b30d9c76c05f817dd9c",
+    "problems/CHEM-004/experiments/independent_20261011/PROTOCOL_REVIEW.txt": "b2e31f7417732f980ff04a9a8d31f98f102ee4a08198e51094f8e8b4fc32717b",
+    "problems/CHEM-004/experiments/independent_20261011/reference/AGENTS.md": "066c4d1cefa30b3311e98b0910bf7e9303936bf74c923d9a16bfc1a31bfd8bff",
+    "problems/CHEM-004/experiments/independent_20261011/reference/GOVERNANCE.lock.json": "c19b61338d1adaf42d0b4884f71933c885512ad85c1619712212629c38257fac",
+    "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/freesolv_validator.py": "e65052b91c9b852933da009f5f28b4847f2cd9d01aea2272f4ab294c7b65c245",
+    "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/lit_data/freesolv_database.txt": "2d13f095713bc39b85f85dd7b4e5483fbb12fc694bf253bb1d92a4c4d484f260",
+    "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/lit_data/FREESOLV_LICENSE": "cce5d01fa4a83b794271bd2c28cffdf99afd43c803e6ddefddae39b591ea7448",
+    "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/problem.json": "6043e8b66b45cb3ea6dc27d241ec70b16ea86112656cb20df2aab389b2a98bdf",
+    "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/results/r1/chem004_r1_results.json": "a883673094f25c75986e82492bbb0e839f173b8f2dd305bdbeaf69b6167227ca",
+    "problems/CHEM-004/experiments/independent_20261011/reference/public-claim-readback.json": "61b144aae69c69ba86bbac7496328544d03265964a68e1441f73aabf74c6cdd3",
+    "problems/CHEM-004/experiments/independent_20261011/reference/README.md": "2ef00be033b788308e605cdf88cf433f2fc79b1abd4af8cc29345e487e673126",
+    "problems/CHEM-004/experiments/independent_20261011/reference/runs/20260927T190905060145Z-glm-CHEM-004/round.json": "fd43d87a6ed0bea4d82582309c70e809a5fc338445d38ec9337468c5e186e482",
+    "problems/CHEM-004/experiments/independent_20261011/reference/STATUS.md": "2cc23f2b45e35c982986d85fbe51a3570c39461b9f13a12e785eace8c47f1b75",
+    "problems/CHEM-004/experiments/independent_20261011/reference/VALIDATION.md": "339edee9ab27d5b5177d3ead6756642e2a1faf872b48311c7f58d845e4c8ecba",
+    "problems/CHEM-004/experiments/independent_20261011/run_bounded.py": "ca43afe0e3cfda5f615fe2f05f5d3d00782a16999e48e2b5ced8db72fb8e86a6",
+    "problems/CHEM-004/experiments/independent_20261011/SOURCE_MANIFEST.json": "fccf6cb5df5eecc980c7c9eb024c94ac9d1663f741e7a177ed98f963b927026f",
+    "problems/CHEM-004/experiments/independent_20261011/verify.py": "c5891b64aecfd49c109eab4f40374e9d75ff56191a41930f41a8a921ae014474",
+    "problems/CHEM-004/experiments/independent_20261011/WEB_TRACE.json": "9e0289c4620b423a3a9f97c0d23a63bdd8a5e8f8402155cf362b99118fedb3f4"
+  },
+  "admitted_at": "2026-10-11T19:10:54.539389+00:00",
+  "launcher_static_review_fix": "Bound termination cleanup; re-evaluate absolute deadline immediately before Popen/wait. No scientific evaluator or input change, no execution yet.",
+  "finished_at": "2026-10-11T19:13:35.675071+00:00",
+  "independent_review": "PROTOCOL_REVIEW.txt records prelaunch STATIC_PASS; final raw artifact review recorded separately without rerun."
+}

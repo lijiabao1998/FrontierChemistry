@@ -1,0 +1,10 @@
+{
+  "finished_at": "2026-10-11T19:13:35.675071+00:00",
+  "wall_seconds": 0.1313681000028737,
+  "child_exit_code": 1,
+  "timed_out": false,
+  "cleanup": {},
+  "result_present": true,
+  "verdict": "BOUNDED_REPLICATION_COMPLETE_FROZEN_C5_FAIL",
+  "status": "COMPLETED_WITH_RETAINED_FAILURE"
+}
