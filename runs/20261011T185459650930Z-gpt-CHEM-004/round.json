@@ -112,10 +112,11 @@
     "problems/CHEM-004/experiments/independent_20261011/reference/runs/20260927T190905060145Z-glm-CHEM-004/round.json": "fd43d87a6ed0bea4d82582309c70e809a5fc338445d38ec9337468c5e186e482",
     "problems/CHEM-004/experiments/independent_20261011/reference/STATUS.md": "2cc23f2b45e35c982986d85fbe51a3570c39461b9f13a12e785eace8c47f1b75",
     "problems/CHEM-004/experiments/independent_20261011/reference/VALIDATION.md": "339edee9ab27d5b5177d3ead6756642e2a1faf872b48311c7f58d845e4c8ecba",
-    "problems/CHEM-004/experiments/independent_20261011/run_bounded.py": "ed0a14659c7e5c1f9ba0d12890a250dd94d7a13b37c41c1b26b8a79a6d70c442",
+    "problems/CHEM-004/experiments/independent_20261011/run_bounded.py": "ca43afe0e3cfda5f615fe2f05f5d3d00782a16999e48e2b5ced8db72fb8e86a6",
     "problems/CHEM-004/experiments/independent_20261011/SOURCE_MANIFEST.json": "fccf6cb5df5eecc980c7c9eb024c94ac9d1663f741e7a177ed98f963b927026f",
     "problems/CHEM-004/experiments/independent_20261011/verify.py": "c5891b64aecfd49c109eab4f40374e9d75ff56191a41930f41a8a921ae014474",
     "problems/CHEM-004/experiments/independent_20261011/WEB_TRACE.json": "9e0289c4620b423a3a9f97c0d23a63bdd8a5e8f8402155cf362b99118fedb3f4"
   },
-  "admitted_at": "2026-10-11T19:10:54.539389+00:00"
+  "admitted_at": "2026-10-11T19:10:54.539389+00:00",
+  "launcher_static_review_fix": "Bound termination cleanup; re-evaluate absolute deadline immediately before Popen/wait. No scientific evaluator or input change, no execution yet."
 }
