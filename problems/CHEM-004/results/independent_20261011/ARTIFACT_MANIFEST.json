@@ -1,0 +1,240 @@
+{
+  "files": [
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/.gitattributes",
+      "bytes": 9,
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/admission_guard.py",
+      "bytes": 1736,
+      "sha256": "bdb2e5adc78e3746d3d5969a767ad31e452e97adddf1af2fbed1cb7c4ff3eace"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/PROTOCOL.json",
+      "bytes": 9971,
+      "sha256": "d3037c4698f311d86f7425d94941306f6d16f24c18599b30d9c76c05f817dd9c"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/PROTOCOL_REVIEW.txt",
+      "bytes": 432,
+      "sha256": "b2e31f7417732f980ff04a9a8d31f98f102ee4a08198e51094f8e8b4fc32717b"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/AGENTS.md",
+      "bytes": 1451,
+      "sha256": "066c4d1cefa30b3311e98b0910bf7e9303936bf74c923d9a16bfc1a31bfd8bff"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/GOVERNANCE.lock.json",
+      "bytes": 132,
+      "sha256": "c19b61338d1adaf42d0b4884f71933c885512ad85c1619712212629c38257fac"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/freesolv_validator.py",
+      "bytes": 12798,
+      "sha256": "e65052b91c9b852933da009f5f28b4847f2cd9d01aea2272f4ab294c7b65c245"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/lit_data/freesolv_database.txt",
+      "bytes": 144897,
+      "sha256": "2d13f095713bc39b85f85dd7b4e5483fbb12fc694bf253bb1d92a4c4d484f260"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/lit_data/FREESOLV_LICENSE",
+      "bytes": 18652,
+      "sha256": "cce5d01fa4a83b794271bd2c28cffdf99afd43c803e6ddefddae39b591ea7448"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/problem.json",
+      "bytes": 1779,
+      "sha256": "6043e8b66b45cb3ea6dc27d241ec70b16ea86112656cb20df2aab389b2a98bdf"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/results/r1/chem004_r1_results.json",
+      "bytes": 1556,
+      "sha256": "a883673094f25c75986e82492bbb0e839f173b8f2dd305bdbeaf69b6167227ca"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/public-claim-readback.json",
+      "bytes": 5729,
+      "sha256": "61b144aae69c69ba86bbac7496328544d03265964a68e1441f73aabf74c6cdd3"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/README.md",
+      "bytes": 3791,
+      "sha256": "2ef00be033b788308e605cdf88cf433f2fc79b1abd4af8cc29345e487e673126"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/runs/20260927T190905060145Z-glm-CHEM-004/round.json",
+      "bytes": 9890,
+      "sha256": "fd43d87a6ed0bea4d82582309c70e809a5fc338445d38ec9337468c5e186e482"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/STATUS.md",
+      "bytes": 758,
+      "sha256": "2cc23f2b45e35c982986d85fbe51a3570c39461b9f13a12e785eace8c47f1b75"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/VALIDATION.md",
+      "bytes": 1167,
+      "sha256": "339edee9ab27d5b5177d3ead6756642e2a1faf872b48311c7f58d845e4c8ecba"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/run_bounded.py",
+      "bytes": 5589,
+      "sha256": "ca43afe0e3cfda5f615fe2f05f5d3d00782a16999e48e2b5ced8db72fb8e86a6"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/SOURCE_MANIFEST.json",
+      "bytes": 2734,
+      "sha256": "fccf6cb5df5eecc980c7c9eb024c94ac9d1663f741e7a177ed98f963b927026f"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/verify.py",
+      "bytes": 7247,
+      "sha256": "c5891b64aecfd49c109eab4f40374e9d75ff56191a41930f41a8a921ae014474"
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/WEB_TRACE.json",
+      "bytes": 24936,
+      "sha256": "9e0289c4620b423a3a9f97c0d23a63bdd8a5e8f8402155cf362b99118fedb3f4"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/.gitattributes",
+      "bytes": 9,
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/attempt-1/execution.json",
+      "bytes": 300,
+      "sha256": "6b1aa144fc02cac0db94ec1d155f5a68bcc119223badd56560b9c8d5f8094ecb"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/attempt-1/launch.json",
+      "bytes": 1189,
+      "sha256": "12f01cfc8992471ddd1960c22d61d216d37060162ac6422271c4920f216fb98a"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/attempt-1/result.json",
+      "bytes": 251196,
+      "sha256": "f180d8dfc291ce547264e0a821dad02cd2c7862b2916a02d23a77e1fa4fa3cd9"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/attempt-1/stderr.txt",
+      "bytes": 98,
+      "sha256": "8531d820d22f5cdadd3f00c00d592e13c211ecf2ec0fe113c1931848a5ccc97d"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/attempt-1/stdout.txt",
+      "bytes": 251196,
+      "sha256": "f180d8dfc291ce547264e0a821dad02cd2c7862b2916a02d23a77e1fa4fa3cd9"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/INDEPENDENT_REVIEW.md",
+      "bytes": 1287,
+      "sha256": "25492b89b54271edadd08b8a516326d47c974a14e81cdb40d92c7265e35867a1"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/chem-claim-readback.json",
+      "bytes": 5729,
+      "sha256": "61b144aae69c69ba86bbac7496328544d03265964a68e1441f73aabf74c6cdd3"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/chem-freeze-blob-audit.json",
+      "bytes": 6786,
+      "sha256": "7142d91d3ff039215659ae796c025e8994c3e1407635b233a682968539b774e9"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/chem-freeze-commit.stdout.txt",
+      "bytes": 2474,
+      "sha256": "b7b55a3416da21f93df5f7b8edc5bda31692a64429eb972b6ca30be3e633d062"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/chemComments.json",
+      "bytes": 12894,
+      "sha256": "6b8283de9934c921886297f44f4e7cccff10d3af5410d7800f0bef2195477fc6"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/chemPR2.json",
+      "bytes": 2361,
+      "sha256": "b9c5ddaac69b53b7e1a5127b854ec9c710fd1c7b682c2a6849953cda0749a73b"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/chemPRs.json",
+      "bytes": 2597,
+      "sha256": "ce574b9684118ce405a53c3224ec2f99567628d340d41f28032e8df744ed7c7d"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/freeze-attempt1-error.json",
+      "bytes": 1988,
+      "sha256": "ca83d1ed4dc412d1fbcd49a34c22775618e28a7a997d267a88f8117649faac67"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-admit-console.json",
+      "bytes": 1083,
+      "sha256": "84d06048de9ca2c5dfab60526a42a2bb6cf6a7b3414013ef02a028282561e5b8"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-checkout-output.json",
+      "bytes": 412,
+      "sha256": "16b1d0b44a0fdcf12e7582ea4a893bbe1437629380dfcd1c700fa3b5d375434e"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-chem-completion-console.json",
+      "bytes": 1772,
+      "sha256": "be2d47386f287eacb066701b6ae21297ffb1a9e6b3d502d6733292f80b2528b0"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-chem-launch-console.json",
+      "bytes": 131,
+      "sha256": "99995ceaf3e9da5d0c15891eb4f47224747ebad5da929e7221749e4e9d3a52b1"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-clone-output.json",
+      "bytes": 198,
+      "sha256": "fe1824d8cb443182d63c702017203ee9e86aed2807e38b1b5bb8efd268162e16"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-econ-completion-console.json",
+      "bytes": 1758,
+      "sha256": "3641e33f121793d8c257f0f26ed5ad5f31435b21f8ec7442a97415cafc967651"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-econ-launch-console.json",
+      "bytes": 131,
+      "sha256": "6f9d79202f11b8abedb151d374896c01ec8ba46950cc43a73df5d337c13c2c51"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-freeze-attempt2-console.json",
+      "bytes": 528,
+      "sha256": "e47703cb93f4b0236a00c2cd95b26dd84c24678be0f75f8af8762bb6ccbf22cd"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-freeze-console.json",
+      "bytes": 1988,
+      "sha256": "ca83d1ed4dc412d1fbcd49a34c22775618e28a7a997d267a88f8117649faac67"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-prepare-planning-output.json",
+      "bytes": 524,
+      "sha256": "f39083bc1c109ed820f1d083b0b400e7e7f1095d132f7301cebba40fd6e0bd11"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/second-refreeze-console.json",
+      "bytes": 822,
+      "sha256": "6449981d025ccb7ed557cbaadf00149f60ff86f820953f790120f93e150874a1"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/preflight/WEB_TRACE.json",
+      "bytes": 24936,
+      "sha256": "9e0289c4620b423a3a9f97c0d23a63bdd8a5e8f8402155cf362b99118fedb3f4"
+    },
+    {
+      "path": "problems/CHEM-004/results/independent_20261011/ROUND_REPORT.md",
+      "bytes": 2056,
+      "sha256": "c127875c5c52b08736563f9e630f59bd6fa45170b70d619873eaa1a62e2c6bdb"
+    }
+  ],
+  "manifest_excludes_itself": true
+}

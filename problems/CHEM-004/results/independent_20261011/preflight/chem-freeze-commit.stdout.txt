@@ -1,0 +1,25 @@
+[gpt/CHEM-004-decimal-independent-20261011 8c8640f] CHEM-004: freeze registered independent audit protocol
+ 23 files changed, 2587 insertions(+)
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/.gitattributes
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/PROTOCOL.json
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/PROTOCOL_REVIEW.txt
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/SOURCE_MANIFEST.json
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/WEB_TRACE.json
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/admission_guard.py
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/AGENTS.md
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/GOVERNANCE.lock.json
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/README.md
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/STATUS.md
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/VALIDATION.md
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/freesolv_validator.py
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/lit_data/FREESOLV_LICENSE
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/lit_data/freesolv_database.txt
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/problem.json
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/results/r1/chem004_r1_results.json
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/public-claim-readback.json
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/reference/runs/20260927T190905060145Z-glm-CHEM-004/round.json
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/run_bounded.py
+ create mode 100644 problems/CHEM-004/experiments/independent_20261011/verify.py
+ create mode 100644 problems/CHEM-004/results/independent_20261011/.gitattributes
+ create mode 100644 runs/20261011T185459650930Z-gpt-CHEM-004/.gitattributes
+ create mode 100644 runs/20261011T185459650930Z-gpt-CHEM-004/round.json

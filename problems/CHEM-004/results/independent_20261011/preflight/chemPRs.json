@@ -1,0 +1,40 @@
+{
+  "issues": [
+    {
+      "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2",
+      "title": "Correct CHEM-004 claims and committed-byte verification",
+      "issue_number": 2,
+      "body": "The existing manifest matched a Windows CRLF working file but failed against the committed LF blob. This repair verifies both the manifest and its artifacts at an immutable Git revision, rejects empty/malformed/duplicate/escaping manifest entries, and corrects active summaries that still claimed withdrawn C4 improvements.\n\nComplete replacement for #1 at bdca662. The model and scientific result JSON are unchanged; original round/report/manifest copies are preserved. C4 is explicitly post-hoc and non-confirmatory, C5 remains FAIL, and no new chemical experiment or independent chemical replication is claimed.\n\nValidation: four integrity test methods passed, including changed line endings and missing files; the old commit reproduces the hash failure; the repaired commit verifies all 7 entries from Git blob bytes. Pinned metadata validation and check-diff pass. Full scientific rerun is NOT_RUN. The historical runner's timestamp and the original admission chronology remain documented limitations.\n\nThe owner delegated merge decisions to GPT; an independent review of this repair is pending before integration.\n",
+      "state": null,
+      "user": null,
+      "assignees": null,
+      "labels": null,
+      "milestone": null,
+      "state_reason": null,
+      "comments": null,
+      "created_at": null,
+      "updated_at": null,
+      "closed_at": null,
+      "display_url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2",
+      "display_title": "Correct CHEM-004 claims and committed-byte verification"
+    },
+    {
+      "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1",
+      "title": "CHEM-004 r1 (glm): FreeSolv validator + GAFF anchor reproduction (1.114) + split/unit controls; C4/C5 frozen thresholds FAIL recorded",
+      "issue_number": 1,
+      "body": "CHEM-004 r1 evidence: runs/20260927T190905060145Z-glm-CHEM-004/ROUND_REPORT.md\n",
+      "state": null,
+      "user": null,
+      "assignees": null,
+      "labels": null,
+      "milestone": null,
+      "state_reason": null,
+      "comments": null,
+      "created_at": null,
+      "updated_at": null,
+      "closed_at": null,
+      "display_url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1",
+      "display_title": "CHEM-004 r1 (glm): FreeSolv validator + GAFF anchor reproduction (1.114) + split/unit controls; C4/C5 frozen thresholds FAIL recorded"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "protocol_commit": "8c8640f309f311fb216d703a63215ec10db70f4a",
+  "source_base": "6d8232c6addf34f39a1e1a7bc91421f26b5259db",
+  "all_input_bytes_match": true,
+  "inputs": [
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/.gitattributes",
+      "expected_sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+      "committed_sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/admission_guard.py",
+      "expected_sha256": "bdb2e5adc78e3746d3d5969a767ad31e452e97adddf1af2fbed1cb7c4ff3eace",
+      "committed_sha256": "bdb2e5adc78e3746d3d5969a767ad31e452e97adddf1af2fbed1cb7c4ff3eace",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/PROTOCOL.json",
+      "expected_sha256": "d3037c4698f311d86f7425d94941306f6d16f24c18599b30d9c76c05f817dd9c",
+      "committed_sha256": "d3037c4698f311d86f7425d94941306f6d16f24c18599b30d9c76c05f817dd9c",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/PROTOCOL_REVIEW.txt",
+      "expected_sha256": "b2e31f7417732f980ff04a9a8d31f98f102ee4a08198e51094f8e8b4fc32717b",
+      "committed_sha256": "b2e31f7417732f980ff04a9a8d31f98f102ee4a08198e51094f8e8b4fc32717b",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/AGENTS.md",
+      "expected_sha256": "066c4d1cefa30b3311e98b0910bf7e9303936bf74c923d9a16bfc1a31bfd8bff",
+      "committed_sha256": "066c4d1cefa30b3311e98b0910bf7e9303936bf74c923d9a16bfc1a31bfd8bff",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/GOVERNANCE.lock.json",
+      "expected_sha256": "c19b61338d1adaf42d0b4884f71933c885512ad85c1619712212629c38257fac",
+      "committed_sha256": "c19b61338d1adaf42d0b4884f71933c885512ad85c1619712212629c38257fac",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/freesolv_validator.py",
+      "expected_sha256": "e65052b91c9b852933da009f5f28b4847f2cd9d01aea2272f4ab294c7b65c245",
+      "committed_sha256": "e65052b91c9b852933da009f5f28b4847f2cd9d01aea2272f4ab294c7b65c245",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/lit_data/freesolv_database.txt",
+      "expected_sha256": "2d13f095713bc39b85f85dd7b4e5483fbb12fc694bf253bb1d92a4c4d484f260",
+      "committed_sha256": "2d13f095713bc39b85f85dd7b4e5483fbb12fc694bf253bb1d92a4c4d484f260",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/experiments/chem004_r1/lit_data/FREESOLV_LICENSE",
+      "expected_sha256": "cce5d01fa4a83b794271bd2c28cffdf99afd43c803e6ddefddae39b591ea7448",
+      "committed_sha256": "cce5d01fa4a83b794271bd2c28cffdf99afd43c803e6ddefddae39b591ea7448",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/problem.json",
+      "expected_sha256": "6043e8b66b45cb3ea6dc27d241ec70b16ea86112656cb20df2aab389b2a98bdf",
+      "committed_sha256": "6043e8b66b45cb3ea6dc27d241ec70b16ea86112656cb20df2aab389b2a98bdf",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/problems/CHEM-004/results/r1/chem004_r1_results.json",
+      "expected_sha256": "a883673094f25c75986e82492bbb0e839f173b8f2dd305bdbeaf69b6167227ca",
+      "committed_sha256": "a883673094f25c75986e82492bbb0e839f173b8f2dd305bdbeaf69b6167227ca",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/public-claim-readback.json",
+      "expected_sha256": "61b144aae69c69ba86bbac7496328544d03265964a68e1441f73aabf74c6cdd3",
+      "committed_sha256": "61b144aae69c69ba86bbac7496328544d03265964a68e1441f73aabf74c6cdd3",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/README.md",
+      "expected_sha256": "2ef00be033b788308e605cdf88cf433f2fc79b1abd4af8cc29345e487e673126",
+      "committed_sha256": "2ef00be033b788308e605cdf88cf433f2fc79b1abd4af8cc29345e487e673126",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/runs/20260927T190905060145Z-glm-CHEM-004/round.json",
+      "expected_sha256": "fd43d87a6ed0bea4d82582309c70e809a5fc338445d38ec9337468c5e186e482",
+      "committed_sha256": "fd43d87a6ed0bea4d82582309c70e809a5fc338445d38ec9337468c5e186e482",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/STATUS.md",
+      "expected_sha256": "2cc23f2b45e35c982986d85fbe51a3570c39461b9f13a12e785eace8c47f1b75",
+      "committed_sha256": "2cc23f2b45e35c982986d85fbe51a3570c39461b9f13a12e785eace8c47f1b75",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/reference/VALIDATION.md",
+      "expected_sha256": "339edee9ab27d5b5177d3ead6756642e2a1faf872b48311c7f58d845e4c8ecba",
+      "committed_sha256": "339edee9ab27d5b5177d3ead6756642e2a1faf872b48311c7f58d845e4c8ecba",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/run_bounded.py",
+      "expected_sha256": "ed0a14659c7e5c1f9ba0d12890a250dd94d7a13b37c41c1b26b8a79a6d70c442",
+      "committed_sha256": "ed0a14659c7e5c1f9ba0d12890a250dd94d7a13b37c41c1b26b8a79a6d70c442",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/SOURCE_MANIFEST.json",
+      "expected_sha256": "fccf6cb5df5eecc980c7c9eb024c94ac9d1663f741e7a177ed98f963b927026f",
+      "committed_sha256": "fccf6cb5df5eecc980c7c9eb024c94ac9d1663f741e7a177ed98f963b927026f",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/verify.py",
+      "expected_sha256": "c5891b64aecfd49c109eab4f40374e9d75ff56191a41930f41a8a921ae014474",
+      "committed_sha256": "c5891b64aecfd49c109eab4f40374e9d75ff56191a41930f41a8a921ae014474",
+      "matches": true
+    },
+    {
+      "path": "problems/CHEM-004/experiments/independent_20261011/WEB_TRACE.json",
+      "expected_sha256": "9e0289c4620b423a3a9f97c0d23a63bdd8a5e8f8402155cf362b99118fedb3f4",
+      "committed_sha256": "9e0289c4620b423a3a9f97c0d23a63bdd8a5e8f8402155cf362b99118fedb3f4",
+      "matches": true
+    }
+  ]
+}

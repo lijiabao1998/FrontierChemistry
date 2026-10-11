@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2#issuecomment-5891543856",
+      "body": "<!-- codex-pull-request-review-summary -->\n<!-- codex-security-review:v1 {\"blockingSeverityThreshold\":\"P0\",\"headSha\":\"312e9632fc2ba041c800d64ee1d518fd19bb656a\",\"mergeGateEnabled\":false,\"pullRequestNumber\":2,\"repository\":\"lijiabao1998/FrontierChemistry\",\"status\":\"completed\"} -->\n## Codex Review Summary\n\nThis comment shows the latest Codex review activity on this pull request.\n\n| Review | Status | Commit | Review trigger |\n| --- | --- | --- | --- |\n| 📝 **Code Review** | ✅ **Completed** <relative-time datetime=\"2026-09-29T13:46:56.557330Z\">2026-09-29T13:46:56.557330Z</relative-time> | `312e963` | PR opened |\n| 🔒 **Security Review** | ✅ **Completed** <relative-time datetime=\"2026-09-29T13:51:10.772793Z\">2026-09-29T13:51:10.772793Z</relative-time> | `312e963` | PR opened |\n\n\n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\" or \"@codex security review\".\n\nCodex reacts with 👀 while any review is running, comments if it has suggestions, and reacts with 👍 once all reviews finish with no findings.\n\n</details>",
+      "user": {
+        "login": "chatgpt-codex-connector[bot]",
+        "name": "chatgpt-codex-connector[bot]",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/in/1144995?v=4",
+        "id": 199175422
+      },
+      "id": 5891543856,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": "2026-09-29T13:43:55Z",
+      "updated_at": "2026-09-29T13:51:12Z",
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "\n\n<h2 dir=\"auto\">Codex Review Summary</h2>\n<p dir=\"auto\">This comment shows the latest Codex review activity on this pull request.</p>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>Review</th>\n<th>Status</th>\n<th>Commit</th>\n<th>Review trigger</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>📝 <strong>Code Review</strong></td>\n<td>✅ <strong>Completed</strong> <relative-time datetime=\"2026-09-29T13:46:56.557330Z\">2026-09-29T13:46:56.557330Z</relative-time></td>\n<td><code class=\"notranslate\">312e963</code></td>\n<td>PR opened</td>\n</tr>\n<tr>\n<td>🔒 <strong>Security Review</strong></td>\n<td>✅ <strong>Completed</strong> <relative-time datetime=\"2026-09-29T13:51:10.772793Z\">2026-09-29T13:51:10.772793Z</relative-time></td>\n<td><code class=\"notranslate\">312e963</code></td>\n<td>PR opened</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br>\n<p dir=\"auto\"><a href=\"https://chatgpt.com/codex/cloud/settings/general\" rel=\"nofollow\">Your team has set up Codex to review pull requests in this repo</a>. Reviews are triggered when you</p>\n<ul dir=\"auto\">\n<li>Open a pull request for review</li>\n<li>Mark a draft as ready</li>\n<li>Comment \"<a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/codex/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/codex\">@codex</a> review\" or \"<a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/codex/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/codex\">@codex</a> security review\".</li>\n</ul>\n<p dir=\"auto\">Codex reacts with 👀 while any review is running, comments if it has suggestions, and reacts with 👍 once all reviews finish with no findings.</p>\n</details>"
+    },
+    {
+      "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2#discussion_r4134198339",
+      "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Handle the bundled Windows wheel on non-Windows hosts**\n\nOn Linux and macOS, the committed `cp313-win_amd64` RDKit package raises `AttributeError` from `os.add_dll_directory` during package initialization, rather than `ImportError`. Consequently both `freesolv_validator.py` and `tests_regression.py` terminate immediately instead of taking the documented `RDKIT_AVAILABLE=False`/BLOCKED path; detect the incompatible platform before importing the bundled package or handle this initialization failure explicitly.\n\nUseful? React with 👍 / 👎.",
+      "user": {
+        "login": "chatgpt-codex-connector[bot]",
+        "name": "chatgpt-codex-connector[bot]",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/in/1144995?v=4",
+        "id": 199175422
+      },
+      "id": 4134198339,
+      "pull_request_review_id": 5353499880,
+      "in_reply_to_id": null,
+      "created_at": "2026-09-29T13:46:52Z",
+      "updated_at": "2026-09-29T13:46:52Z",
+      "review": null,
+      "side": "RIGHT",
+      "line": null,
+      "start_line": null,
+      "path": "problems/CHEM-004/experiments/chem004_r1/freesolv_validator.py",
+      "body_html": "<p dir=\"auto\"><strong><sub><sub><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/c595229c0ecb6ee85b9c7804144d495f131a495ec87091fea2b262d954c9a92d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50312d6f72616e67653f7374796c653d666c6174\"><img src=\"https://camo.githubusercontent.com/c595229c0ecb6ee85b9c7804144d495f131a495ec87091fea2b262d954c9a92d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50312d6f72616e67653f7374796c653d666c6174\" alt=\"P1 Badge\" data-canonical-src=\"https://img.shields.io/badge/P1-orange?style=flat\" style=\"max-width: 100%;\"></a></sub></sub>  Handle the bundled Windows wheel on non-Windows hosts</strong></p>\n<p dir=\"auto\">On Linux and macOS, the committed <code class=\"notranslate\">cp313-win_amd64</code> RDKit package raises <code class=\"notranslate\">AttributeError</code> from <code class=\"notranslate\">os.add_dll_directory</code> during package initialization, rather than <code class=\"notranslate\">ImportError</code>. Consequently both <code class=\"notranslate\">freesolv_validator.py</code> and <code class=\"notranslate\">tests_regression.py</code> terminate immediately instead of taking the documented <code class=\"notranslate\">RDKIT_AVAILABLE=False</code>/BLOCKED path; detect the incompatible platform before importing the bundled package or handle this initialization failure explicitly.</p>\n<p dir=\"auto\">Useful? React with 👍 / 👎.</p>"
+    },
+    {
+      "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2#discussion_r4134198346",
+      "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Include RDKit bytes in the integrity manifest**\n\nThe validator imports all chemistry operations from `.deps/rdkit`, but none of that package's Python or binary files—and no exact RDKit version—are covered here. A later commit can replace the bundled RDKit implementation and alter charge, scaffold, and feature calculations while both working-tree and `--git-revision HEAD` verification still report 7/7 PASS, so the claimed executable-artifact identity is incomplete; add a dependency lock or digest covering the RDKit distribution.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierChemistry/blob/312e9632fc2ba041c800d64ee1d518fd19bb656a/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+      "user": {
+        "login": "chatgpt-codex-connector[bot]",
+        "name": "chatgpt-codex-connector[bot]",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/in/1144995?v=4",
+        "id": 199175422
+      },
+      "id": 4134198346,
+      "pull_request_review_id": 5353499880,
+      "in_reply_to_id": null,
+      "created_at": "2026-09-29T13:46:52Z",
+      "updated_at": "2026-09-29T13:46:52Z",
+      "review": null,
+      "side": "RIGHT",
+      "line": null,
+      "start_line": null,
+      "path": "problems/CHEM-004/results/r1/hashes.txt",
+      "body_html": "<p dir=\"auto\"><strong><sub><sub><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/f2c1aacb361ddd3a0e9f9cacdb84fab050de434017f6747bb916e31e29bdf03d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50322d79656c6c6f773f7374796c653d666c6174\"><img src=\"https://camo.githubusercontent.com/f2c1aacb361ddd3a0e9f9cacdb84fab050de434017f6747bb916e31e29bdf03d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50322d79656c6c6f773f7374796c653d666c6174\" alt=\"P2 Badge\" data-canonical-src=\"https://img.shields.io/badge/P2-yellow?style=flat\" style=\"max-width: 100%;\"></a></sub></sub>  Include RDKit bytes in the integrity manifest</strong></p>\n<p dir=\"auto\">The validator imports all chemistry operations from <code class=\"notranslate\">.deps/rdkit</code>, but none of that package's Python or binary files—and no exact RDKit version—are covered here. A later commit can replace the bundled RDKit implementation and alter charge, scaffold, and feature calculations while both working-tree and <code class=\"notranslate\">--git-revision HEAD</code> verification still report 7/7 PASS, so the claimed executable-artifact identity is incomplete; add a dependency lock or digest covering the RDKit distribution.</p>\n<p dir=\"auto\">AGENTS.md reference: <a href=\"https://github.com/lijiabao1998/FrontierChemistry/blob/312e9632fc2ba041c800d64ee1d518fd19bb656a/AGENTS.md#L10-L10\">AGENTS.md:L10-L10</a></p>\n<p dir=\"auto\">Useful? React with 👍 / 👎.</p>"
+    },
+    {
+      "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2#pullrequestreview-5353499880",
+      "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `312e9632fc`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+      "user": {
+        "login": "chatgpt-codex-connector[bot]",
+        "name": "chatgpt-codex-connector[bot]",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/in/1144995?v=4",
+        "id": 199175422
+      },
+      "id": 5353499880,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": "2026-09-29T13:46:52Z",
+      "updated_at": null,
+      "review": "COMMENTED",
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<h3 dir=\"auto\">💡 Codex Review</h3>\n<p dir=\"auto\">Here are some automated review suggestions for this pull request.</p>\n<p dir=\"auto\"><strong>Reviewed commit:</strong> <code class=\"notranslate\">312e9632fc</code></p>\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br>\n<p dir=\"auto\"><a href=\"https://chatgpt.com/codex/cloud/settings/general\" rel=\"nofollow\">Your team has set up Codex to review pull requests in this repo</a>. Reviews are triggered when you</p>\n<ul dir=\"auto\">\n<li>Open a pull request for review</li>\n<li>Mark a draft as ready</li>\n<li>Comment \"<a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/codex/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/codex\">@codex</a> review\".</li>\n</ul>\n<p dir=\"auto\">If Codex has suggestions, it will comment; otherwise it will react with 👍.</p>\n<p dir=\"auto\">Codex can also answer questions or update the PR. Try commenting \"<a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/codex/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/codex\">@codex</a> address that feedback\".</p>\n</details>"
+    }
+  ],
+  "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2",
+  "title": "lijiabao1998/FrontierChemistry PR #2 comments",
+  "display_url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2",
+  "display_title": "lijiabao1998/FrontierChemistry PR #2 comments"
+}

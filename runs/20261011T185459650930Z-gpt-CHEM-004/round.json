@@ -5,7 +5,7 @@
   "branch": "gpt/CHEM-004-decimal-independent-20261011",
   "base_sha": "6d8232c6addf34f39a1e1a7bc91421f26b5259db",
   "started_at": "2026-10-11T18:54:59.650930+00:00",
-  "state": "ADMITTED",
+  "state": "ROUND_FINISHED",
   "acceptance": "Frozen PROTOCOL.json SHA256 d3037c4698f311d86f7425d94941306f6d16f24c18599b30d9c76c05f817dd9c. Independent bounded reference/checker replication; all expected controls required; original FAIL retained; no broad completion claim.",
   "not_done": "NOT_RUN: no numerical calculation or author verifier execution. C2/C4 chemistry, new chemical simulations, causal estimation, full Census tables, merge/deploy and publication are outside this draft.",
   "budget": {
@@ -81,8 +81,21 @@
     "baseline_identified": true,
     "acceptance_frozen": true
   },
-  "artifacts": [],
-  "result": null,
+  "artifacts": [
+    "problems/CHEM-004/experiments/independent_20261011",
+    "problems/CHEM-004/results/independent_20261011"
+  ],
+  "result": {
+    "verdict": "BOUNDED_REPLICATION_COMPLETE_FROZEN_C5_FAIL",
+    "child_exit_code": 1,
+    "raw_stdout": "problems/CHEM-004/results/independent_20261011/attempt-1/stdout.txt",
+    "raw_stderr": "problems/CHEM-004/results/independent_20261011/attempt-1/stderr.txt",
+    "summary": "problems/CHEM-004/results/independent_20261011/attempt-1/result.json",
+    "scientific_all_criteria_passed": false,
+    "broad_problem_completion": false,
+    "research_runs": 1,
+    "usd": 0
+  },
   "public_claim": {
     "status": "POSTED_AND_READ_BACK",
     "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/2#issuecomment-6112642386",
@@ -91,9 +104,14 @@
     "comment_id": 6112642386
   },
   "execution": {
-    "status": "NOT_RUN",
-    "launched_at": null,
-    "exit_code": null
+    "finished_at": "2026-10-11T19:13:35.675071+00:00",
+    "wall_seconds": 0.1313681000028737,
+    "child_exit_code": 1,
+    "timed_out": false,
+    "cleanup": {},
+    "result_present": true,
+    "verdict": "BOUNDED_REPLICATION_COMPLETE_FROZEN_C5_FAIL",
+    "status": "COMPLETED_WITH_RETAINED_FAILURE"
   },
   "execution_inputs_sha256": {
     "problems/CHEM-004/experiments/independent_20261011/.gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
@@ -118,5 +136,7 @@
     "problems/CHEM-004/experiments/independent_20261011/WEB_TRACE.json": "9e0289c4620b423a3a9f97c0d23a63bdd8a5e8f8402155cf362b99118fedb3f4"
   },
   "admitted_at": "2026-10-11T19:10:54.539389+00:00",
-  "launcher_static_review_fix": "Bound termination cleanup; re-evaluate absolute deadline immediately before Popen/wait. No scientific evaluator or input change, no execution yet."
+  "launcher_static_review_fix": "Bound termination cleanup; re-evaluate absolute deadline immediately before Popen/wait. No scientific evaluator or input change, no execution yet.",
+  "finished_at": "2026-10-11T19:13:35.675071+00:00",
+  "independent_review": "PROTOCOL_REVIEW.txt records prelaunch STATIC_PASS; final raw artifact review recorded separately without rerun."
 }
