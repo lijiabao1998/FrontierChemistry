@@ -40,4 +40,4 @@ python3 ../FrontierLab-Governance/tools/frontier.py admit . runs/<round-id>/roun
 本庫預設低風險公開計算／資料研究；不自動執行濕實驗，不設計毒劑、爆炸物、武器或危險操作流程。任何實驗、付費算力、受限資料均另需授權與合資格審查。
 
 ## 本次狀態
-題卡、流程與紀錄CI已建立；原創研究輪次0，各題evaluator尚未實作，無新合成或新材料實驗宣稱。尚未安裝量子化學套件、配置GPU或研究API金鑰。CI只驗紀錄，實際結果以Actions為準。
+題卡、流程與紀錄CI已建立；已有一份 CHEM-004 歷史基線紀錄及 evaluator，結果仍未經獨立化學驗收。C4 屬事後分析，改善宣稱已撤回；C5 FAIL。無新合成或新材料實驗宣稱。尚未安裝量子化學套件、配置GPU或研究API金鑰。CI只驗紀錄，實際結果以Actions為準。
